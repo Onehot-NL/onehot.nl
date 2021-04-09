@@ -1,0 +1,17 @@
+ - Organisatorische website
+ - Calendar
+ - Canonical: onehot.nl
+ - Gesorteerde lijst met events
+ - Archief van oude events
+ - Fotos met Pxl
+ - VPS en zelf hosten
+ - Over ons
+ - Contact
+ - Tipjar
+ - Code of conduct
+ - Privacy policy
+ - Eventueel analytics, maar self-hosted
+ - Conference website
+ - Headers enzo
+ - Kleurenschema
+ - Logo: Iconografisch + Onehot uitgeschreven
