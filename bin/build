@@ -3,10 +3,19 @@ import os
 import pathlib
 import shutil
 
+import jinja2
+
 
 project_root = pathlib.Path(os.environ["PROJECT_ROOT"])
 web_dir = project_root / "web"
 build_dir = project_root / "ignore" / "dist"
+styles = web_dir / "style.css"
+index_src = web_dir / "index.html"
+index_dest = build_dir / "index.html"
 
-for file in web_dir.iterdir():
-    shutil.copy(file, build_dir)
+shutil.copy(styles, build_dir)
+
+index_template = jinja2.Template(index_src.read_text())
+index_rendered = index_template.render()
+
+index_dest.write_text(index_rendered)
