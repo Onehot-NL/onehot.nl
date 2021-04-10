@@ -9,8 +9,8 @@
       <h1>Bringing together people in data</h1>
       <h3>We're a community of data scientists and ML(Ops) engineers.
         We're sharing how we work and how we would like to work.</h3>
-      <h3>Join our events to meet like-minded folks and learn about
-        your field.</h3>
+      <h3>We organize meetups and (hopefully) conferences. Join our
+        events to meet like-minded folks and learn about your field.</h3>
     </div>
   </header>
 
@@ -18,15 +18,19 @@
     <h2>Events</h2>
     {% for event in events %}
     <div class="event">
-      <h3>Meetup: {{ event.title }}</h3>
-      <p>
+      <h3 class="title">Meetup: {{ event.title }}</h3>
+      <p class="speakers">
         <strong>Seakers:</strong>
         {% for speaker in event.speakers %}
         {% set sep = ", " if not loop.last else "" %}
         {{ speaker.name }} <em>({{ speaker.affiliation }})</em>{{ sep }}
         {% endfor %}
       </p>
-      <p><strong>Date:</strong> {{ event.date }}</p>
+      <p class="date"><strong>Date:</strong> {{ event.date }}</p>
+      <a class="rsvp" href="{{ event.meetup_url }}">Details & RSVP</a>
+      {% if event.video_url %}
+      <a class="video" href="{{ event.video_url }}">Video</a>
+      {% endif %}
     </div>
     {% endfor %}
   </main>

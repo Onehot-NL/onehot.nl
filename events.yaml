@@ -5,6 +5,7 @@
     - name: Rob de Wit
       affiliation: Bol.com
   date: April 04, 2021
+  meetup_url: https://www.meetup.com/fp-ams/events/znktdsyccgbsb/
 
 - title: Natural Language Processing
   speakers:
@@ -13,6 +14,7 @@
     - name: Rob de Wit
       affiliation: Bol.com
   date: April 04, 2021
+  meetup_url: https://www.meetup.com/fp-ams/events/znktdsyccgbsb/
 
 - title: Model operations and deployment
   speakers:
@@ -21,6 +23,8 @@
     - name: Rob de Wit
       affiliation: Bol.com
   date: April 04, 2021
+  meetup_url: https://www.meetup.com/fp-ams/events/znktdsyccgbsb/
+  video_url: https://www.youtube.com/watch?v=F0tUPcffT6Y
 
 - title: What's the deal with deep learning?
   speakers:
@@ -29,3 +33,5 @@
     - name: Rob de Wit
       affiliation: Bol.com
   date: April 04, 2021
+  meetup_url: https://www.meetup.com/fp-ams/events/znktdsyccgbsb/
+  video_url: https://www.youtube.com/watch?v=F0tUPcffT6Y
