@@ -16,29 +16,18 @@
 
   <main>
     <h2>Events</h2>
+    {% for event in events %}
     <div class="event">
-      <h3>Meetup: One-hot encoding</h3>
-      <p><strong>Seakers:</strong> Alma Liezenga (TU Delft), Rob de Wit (Bol.com)</p>
-      <p><strong>Date:</strong> April 04, 2021</p>
+      <h3>Meetup: {{ event.title }}</h3>
+      <p>
+        <strong>Seakers:</strong>
+        {% for speaker in event.speakers %}
+        {{ speaker.name }} ({{ speaker.affiliation }})
+        {% endfor %}
+      </p>
+      <p><strong>Date:</strong> {{ event.date }}</p>
     </div>
-
-    <div class="event">
-      <h3>Meetup: Natural Language Processing</h3>
-      <p><strong>Seakers:</strong> Alma Liezenga (TU Delft), Rob de Wit (Bol.com)</p>
-      <p><strong>Date:</strong> April 04, 2021</p>
-    </div>
-
-    <div class="event">
-      <h3>Meetup: Model operations and deployment</h3>
-      <p><strong>Seakers:</strong> Alma Liezenga (TU Delft), Rob de Wit (Bol.com)</p>
-      <p><strong>Date:</strong> April 04, 2021</p>
-    </div>
-
-    <div class="event">
-      <h3>Meetup: What's the deal with deep learning?</h3>
-      <p><strong>Seakers:</strong> Alma Liezenga (TU Delft), Rob de Wit (Bol.com)</p>
-      <p><strong>Date:</strong> April 04, 2021</p>
-    </div>
+    {% endfor %}
   </main>
 </body>
 </html>

@@ -7,6 +7,7 @@ let
     ps.isort
     ps.jinja2
     ps.mypy
+    ps.ruamel_yaml
   ]);
 in
 pkgs.mkShell {

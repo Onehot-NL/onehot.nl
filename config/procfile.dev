@@ -1,2 +1,2 @@
 serve: serve
-build: watchexec build
+build: watchexec -w web -w events.yaml build
