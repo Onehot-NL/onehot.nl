@@ -22,7 +22,8 @@
       <p>
         <strong>Seakers:</strong>
         {% for speaker in event.speakers %}
-        {{ speaker.name }} ({{ speaker.affiliation }})
+        {% set sep = ", " if not loop.last else "" %}
+        {{ speaker.name }} <em>({{ speaker.affiliation }})</em>{{ sep }}
         {% endfor %}
       </p>
       <p><strong>Date:</strong> {{ event.date }}</p>
