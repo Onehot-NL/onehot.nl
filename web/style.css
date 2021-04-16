@@ -19,8 +19,8 @@ header {
     display: grid;
     grid-template-areas:
         "title title"
-        "speakers rsvp"
-        "date video";
+        "date rsvp"
+        "speakers video";
 }
 
 .event .title {
