@@ -1,14 +1,6 @@
 let
   pkgs = import ./nix/nixpkgs.nix {};
-  pythonEnv = pkgs.python39.withPackages (ps: [
-    ps.black
-    ps.flake8
-    ps.hypothesis
-    ps.isort
-    ps.jinja2
-    ps.mypy
-    ps.ruamel_yaml
-  ]);
+  pythonEnv = pkgs.python39.withPackages (import ./nix/python-packages.nix);
 in
 pkgs.mkShell {
   name = "onehot";
