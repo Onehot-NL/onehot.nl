@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
+
+# Launch a development workflow with Overmind. This starts the programs
+# specified in config/procfile.dev and runs them in a single terminal.
+
 set -eufo pipefail
 overmind start --root $PROJECT_ROOT -f $PROJECT_ROOT/config/procfile.dev

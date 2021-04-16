@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# Serve the built website using a development server on localhost:8000
+
 set -eufo pipefail
 cd $PROJECT_ROOT
 python -m http.server -d $PROJECT_ROOT/ignore/dist/

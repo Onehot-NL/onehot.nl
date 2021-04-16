@@ -1,54 +1,37 @@
-# Python
+# Onehot
 
-Boilerplate for a Python codebase.
+Website for our [data science meetup][meetup].
 
-## Dependencies
+ [meetup]:https://www.meetup.com/onehot-data-science-utrecht/
 
- - Nix
- - direnv
+## Development
 
-## Commands
+Dependencies:
+
+ - [Nix](https://nixos.org/download.html)
+ - [direnv](https://direnv.net/#getting-started)
+
+Common commands:
 
 ```
 # Run direnv allow to automatically load a development shell
 # when `cd`ing to the current directory.
 $ direnv allow
 
-# Run the program
+# Development server + build the website in the background.
+# Available on http://localhost:8000
 $ start
-
-# Documentation server
-$ docs
-
-# Generate documentation
-$ docs --build
-
-# Run the test suite
-$ test
 
 # Run pre-commit lints and checks
 $ pre-commit
 
-# Install pre-commit lints and checks
+# Install pre-commit lints and checks to run for every commit.
 $ pre-commit --install
+
+# List other available commands. These shell scripts have been
+# added to your PATH by direnv, so you can call them directly
+# (that's how `start` and `pre-commit` work).
+$ ls bin/
+build pre-commit serve start
+
 ```
-
-## Features
-
-Lints:
-
- - Autoformatting with `black`.
- - Import sorting with `isort`.
- - Type checking with `mypy --strict`.
- - PEP8 compliance with `flake8`.
-
-Python:
-
- - Dependency management with Nix and Nixpkgs' Python infrastructure.
- - Test suite with hypothesis.
-
-## How to use
-
- - Copy over the files to the new project.
- - Potentially: update the Nixpkgs snapshot.
- - Rename `my_module` to something else and get coding.
