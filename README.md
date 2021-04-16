@@ -35,3 +35,26 @@ $ ls bin/
 build pre-commit serve start
 
 ```
+
+## Architecture
+
+This is what's in the repo:
+
+ - `web/` contains templates, static pages, and stylesheets for our
+   website. All HTML files are [Jinja2][jinja2] templates.
+ - `events.yaml` contains our data model (currently only events).
+ - `bin/build` is a build script that combines the templates and data
+   and outputs a static site at `ignore/dist`.
+ - In local development, we serve `ignore/dist` using Python's built
+   in HTTP server. We also rebuild on file changes. [Overmind][overmind]
+   coordinates the processes.
+ - In production, the site is built using Nix and served using Nginx.
+   (Laurens's personal Nix config imports `release.nix` and adds it to
+   his Nginx setup).
+ - There are some miscelaneous scripts that are used for linting etc.
+ - Nix is used for the development environment. I'll be happy to
+   explain more about this, but there is a lot to discuss so let's do
+   that when there is a need.
+
+[jinja2]:https://jinja.palletsprojects.com/en/2.11.x/
+[overmind]:https://github.com/DarthSim/overmind
