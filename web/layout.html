@@ -1,3 +1,7 @@
+{% macro active(page_name) -%}
+{% if active_page == page_name %}class="active"{% endif %}
+{%- endmacro %}
+
 <html>
 <head>
   <title>onehot</title>
@@ -9,9 +13,9 @@
     <div class="container">
       <nav>
         <ul>
-          <li><a href="/">events</a></li>
-          <li><a href="/about">about</a></li>
-          <li><a href="/code-of-conduct">code of conduct</a></li>
+          <li {{ active("index.html") }}><a href="/">events</a></li>
+          <li {{ active("about.html") }}><a href="/about.html">about</a></li>
+          <li {{ active("code-of-conduct.html") }}><a href="/code-of-conduct.html">code of conduct</a></li>
         </ul>
       </nav>
       {% block header %}

@@ -27,15 +27,13 @@ events_file = project_root / "events.yaml"
 events = yaml.load(events_file)
 
 styles = web_dir / "style.css"
-
-index_dest = build_dir / "index.html"
-
 shutil.copy(styles, build_dir)
 
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(web_dir))
 
-index_rendered = jinja_env.get_template("index.html").render(events=events)
-
-index_dest.write_text(index_rendered)
+for page in {"index.html", "about.html", "code-of-conduct.html"}:
+    dest_file = build_dir / page
+    rendered = jinja_env.get_template(page).render(events=events, active_page=page)
+    dest_file.write_text(rendered)
 
 print("Done.")

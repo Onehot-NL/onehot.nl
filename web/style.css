@@ -93,6 +93,16 @@ nav ul {
 nav ul li {
     display: inline-block;
     margin-right: 1rem;
+    padding: 0 5px;
+}
+
+nav ul li.active {
+    background: #000;
+}
+
+nav ul li.active a {
+    color: #fff;
+    border-bottom: none;
 }
 
 /* Events */
