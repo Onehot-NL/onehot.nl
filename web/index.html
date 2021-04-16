@@ -1,46 +1,30 @@
-<html>
-<head>
-  <title>onehot</title>
-  <link rel="stylesheet" href="/style.css">
-  <meta charset="utf-8">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <nav>
-        <ul>
-          <li><a href="/">events</a></li>
-          <li><a href="/about">about</a></li>
-          <li><a href="/code-of-conduct">code of conduct</a></li>
-        </ul>
-      </nav>
-      <h1>Bringing together people in data</h1>
-      <p class="large">We're a community of data scientists and ML(Ops) engineers.
-        We're sharing how we work and how we would like to work.</p>
-      <p class="large">We organize meetups and (hopefully) conferences. Join our
-        events to meet like-minded folks and learn about your field.</p>
-    </div>
-  </header>
+{% extends "layout.html" %}
 
-  <main>
-    <h2>Events</h2>
-    {% for event in events %}
-    <div class="event">
-      <h4 class="title">Meetup: {{ event.title }}</h4>
-      <p class="date"><strong>Date:</strong> {{ event.date }}</p>
-      <p class="speakers">
-        <strong>Seakers:</strong>
-        {% for speaker in event.speakers %}
-        {% set sep = ", " if not loop.last else "" %}
-        {{ speaker.name }} <em>({{ speaker.affiliation }})</em>{{ sep }}
-        {% endfor %}
-      </p>
-      <div class="rsvp"><a href="{{ event.meetup_url }}">Details & RSVP</a></div>
-      {% if event.video_url %}
-      <div class="video"><a href="{{ event.video_url }}">Video</a></div>
-      {% endif %}
-    </div>
+{% block header %}
+<h1>Bringing together people in data</h1>
+<p class="large">We're a community of data scientists and ML(Ops) engineers.
+We're sharing how we work and how we would like to work.</p>
+<p class="large">We organize meetups and (hopefully) conferences. Join our
+events to meet like-minded folks and learn about your field.</p>
+{% endblock %}
+
+{% block main %}
+<h2>Events</h2>
+{% for event in events %}
+<div class="event">
+    <h4 class="title">Meetup: {{ event.title }}</h4>
+    <p class="date"><strong>Date:</strong> {{ event.date }}</p>
+    <p class="speakers">
+    <strong>Seakers:</strong>
+    {% for speaker in event.speakers %}
+    {% set sep = ", " if not loop.last else "" %}
+    {{ speaker.name }} <em>({{ speaker.affiliation }})</em>{{ sep }}
     {% endfor %}
-  </main>
-</body>
-</html>
+    </p>
+    <div class="rsvp"><a href="{{ event.meetup_url }}">Details & RSVP</a></div>
+    {% if event.video_url %}
+    <div class="video"><a href="{{ event.video_url }}">Video</a></div>
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

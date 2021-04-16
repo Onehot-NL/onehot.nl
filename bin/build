@@ -21,19 +21,20 @@ yaml = get_yaml()
 project_root = pathlib.Path(os.environ["PROJECT_ROOT"])
 web_dir = project_root / "web"
 build_dir = project_root / "ignore" / "dist"
+build_dir.mkdir(exist_ok=True)
 
 events_file = project_root / "events.yaml"
 events = yaml.load(events_file)
 
 styles = web_dir / "style.css"
-index_src = web_dir / "index.html"
 
 index_dest = build_dir / "index.html"
 
 shutil.copy(styles, build_dir)
 
-index_template = jinja2.Template(index_src.read_text())
-index_rendered = index_template.render(events=events)
+jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(web_dir))
+
+index_rendered = jinja_env.get_template("index.html").render(events=events)
 
 index_dest.write_text(index_rendered)
 
