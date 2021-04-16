@@ -15,10 +15,10 @@
         </ul>
       </nav>
       <h1>Bringing together people in data</h1>
-      <h3>We're a community of data scientists and ML(Ops) engineers.
-        We're sharing how we work and how we would like to work.</h3>
-      <h3>We organize meetups and (hopefully) conferences. Join our
-        events to meet like-minded folks and learn about your field.</h3>
+      <p class="large">We're a community of data scientists and ML(Ops) engineers.
+        We're sharing how we work and how we would like to work.</p>
+      <p class="large">We organize meetups and (hopefully) conferences. Join our
+        events to meet like-minded folks and learn about your field.</p>
     </div>
   </header>
 
@@ -26,7 +26,7 @@
     <h2>Events</h2>
     {% for event in events %}
     <div class="event">
-      <h3 class="title">Meetup: {{ event.title }}</h3>
+      <h4 class="title">Meetup: {{ event.title }}</h4>
       <p class="date"><strong>Date:</strong> {{ event.date }}</p>
       <p class="speakers">
         <strong>Seakers:</strong>
