@@ -1,37 +1,8 @@
-- title: One-hot encoding
+- title: A world in transition
   speakers:
-    - name: Alma Liezenga
+    - name: Docent Alma
       affiliation: TU Delft
-    - name: Rob de Wit
-      affiliation: Bol.com
-  date: April 04, 2021
-  meetup_url: https://www.meetup.com/fp-ams/events/znktdsyccgbsb/
-
-- title: Natural Language Processing
-  speakers:
-    - name: Alma Liezenga
-      affiliation: TU Delft
-    - name: Rob de Wit
-      affiliation: Bol.com
-  date: April 04, 2021
-  meetup_url: https://www.meetup.com/fp-ams/events/znktdsyccgbsb/
-
-- title: Model operations and deployment
-  speakers:
-    - name: Alma Liezenga
-      affiliation: TU Delft
-    - name: Rob de Wit
-      affiliation: Bol.com
-  date: April 04, 2021
-  meetup_url: https://www.meetup.com/fp-ams/events/znktdsyccgbsb/
-  video_url: https://www.youtube.com/watch?v=F0tUPcffT6Y
-
-- title: What's the deal with deep learning?
-  speakers:
-    - name: Alma Liezenga
-      affiliation: TU Delft
-    - name: Rob de Wit
-      affiliation: Bol.com
-  date: April 04, 2021
-  meetup_url: https://www.meetup.com/fp-ams/events/znktdsyccgbsb/
-  video_url: https://www.youtube.com/watch?v=F0tUPcffT6Y
+    - name: Bas de Kan
+      affiliation: Alliander / Navara
+  date: May 18th, 2021
+  meetup_url: https://www.meetup.com/onehot-data-science-utrecht/
