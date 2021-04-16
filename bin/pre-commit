@@ -25,7 +25,7 @@ import os
 import pathlib
 import subprocess
 import sys
-from typing import List
+from typing import List, Sequence, Union
 
 
 class Mode(enum.Enum):
@@ -39,7 +39,7 @@ class Mode(enum.Enum):
         return cls(arg_mode)
 
 
-def run_lint(command: List[str]) -> None:
+def run_lint(command: Sequence[Union[str, pathlib.Path]]) -> None:
     print(f"==> {command[0]}")
     try:
         subprocess.run(command, check=True)
@@ -48,14 +48,28 @@ def run_lint(command: List[str]) -> None:
 
 
 def run_lints(mode: Mode) -> None:
-    repo_root = os.environ["PROJECT_ROOT"]
+    repo_root = pathlib.Path(os.environ["PROJECT_ROOT"])
+    build_script = repo_root / "bin" / "build"
+    pre_commit_script = repo_root / "bin" / "pre-commit"
+
     check_mode = mode == Mode.CHECK
     extra_args = ["--check", "--diff"] if check_mode else []
 
-    run_lint(["black"] + extra_args + ["--quiet", repo_root])
-    run_lint(["isort"] + extra_args + ["--skip-gitignore", repo_root])
-    run_lint(["flake8", repo_root])
-    run_lint(["mypy", "--strict", repo_root])
+    run_lint(
+        ["black", *extra_args, "--quiet", build_script, pre_commit_script]
+    )
+    run_lint(
+        [
+            "isort",
+            *extra_args,
+            "--skip-gitignore",
+            build_script,
+            pre_commit_script,
+        ]
+    )
+    run_lint(["flake8", build_script, pre_commit_script])
+    run_lint(["mypy", "--strict", build_script])
+    run_lint(["mypy", "--strict", pre_commit_script])
 
 
 def install_git_hook() -> None:

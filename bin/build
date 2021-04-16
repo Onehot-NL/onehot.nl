@@ -4,8 +4,7 @@ import pathlib
 import shutil
 
 import jinja2
-from ruamel.yaml import YAML
-
+from ruamel.yaml import YAML  # type: ignore
 
 print("Building..")
 
@@ -33,7 +32,9 @@ jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(web_dir))
 
 for page in {"index.html", "about.html", "code-of-conduct.html"}:
     dest_file = build_dir / page
-    rendered = jinja_env.get_template(page).render(events=events, active_page=page)
+    rendered = jinja_env.get_template(page).render(
+        events=events, active_page=page
+    )
     dest_file.write_text(rendered)
 
 print("Done.")
