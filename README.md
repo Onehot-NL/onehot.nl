@@ -26,6 +26,7 @@ Then:
 ```
 $ git clone git@github.com:duijf/onehot.git
 $ cd onehot
+$ ln -s .envrc.nix .envrc
 $ direnv allow
 ```
 
@@ -39,7 +40,8 @@ $ brew install overmind direnv watchexec
 $ git clone git@github.com:duijf/onehot.git
 $ python -m venv .env
 $ pip install -r requirements.txt
-$ source .env/bin/activate
+$ ln -s .envrc.nix .envrc
+$ direnv allow
 ```
 
 ## Commands
