@@ -6,12 +6,43 @@ Website for our [data science meetup][meetup].
 
 ## Development
 
-Dependencies:
+There are two options here:
 
- - [Nix](https://nixos.org/download.html)
- - [direnv](https://direnv.net/#getting-started)
+ - Install [`nix`][nix] and [`direnv`][diren] and use our managed
+   development environment.
+ - Use a more traditional development environment based on Python's
+   virtualenvs and installing dependencies manually. You probably want
+   this if you are on MacOS.
 
-Common commands:
+### Nix setup
+
+There are two steps:
+
+ 1. Install [`nix`][nix]
+ 1. Install [`direnv`][direnv]
+
+Then:
+
+```
+$ git clone git@github.com:duijf/onehot.git
+$ cd onehot
+$ direnv allow
+```
+
+ [nix]:https://nixos.org/download.html
+ [direnv]:https://direnv.net/#getting-started
+
+### MacOS
+
+```
+$ brew install overmind direnv watchexec
+$ git clone git@github.com:duijf/onehot.git
+$ python -m venv .env
+$ pip install -r requirements.txt
+$ source .env/bin/activate
+```
+
+## Commands
 
 ```
 # Run direnv allow to automatically load a development shell
