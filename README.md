@@ -36,12 +36,14 @@ $ direnv allow
 ### MacOS
 
 ```
-$ brew install overmind direnv watchexec
+$ brew install overmind direnv watchexec pyenv coreutils
 $ git clone git@github.com:duijf/onehot.git
+$ pyenv install 3.9.4
+$ pyenv local 3.9.4
 $ python -m venv .env
-$ pip install -r requirements.txt
-$ ln -s .envrc.nix .envrc
+$ ln -s .envrc.osx .envrc
 $ direnv allow
+$ pip install -r requirements.txt
 ```
 
 ## Commands
