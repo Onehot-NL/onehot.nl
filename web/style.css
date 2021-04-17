@@ -13,6 +13,32 @@
 html {
     font-size: 100%;
     font-family: Noto Serif;
+
+    /* Colour scheme */
+    --onehotpink: #F72585;
+    --onehotpurple: #7209B7;
+    --onehotblue: #3A0CA3;
+
+    --darkbrown: #322214;
+    --offwhite: #FEFFFE;
+
+    /* Functional colours and shades */
+    --lightblue: #4CC9F0;
+    --lightblue-1: #8EDEF6;
+    --lightblue-2: #C6EEFA;
+
+    --green: #20FC8F;
+    --green-1: #86FEC2;
+    --green-2: #C2FEE0;
+
+    --yellow: #FCE761;
+    --yellow-1: #FDF09B;
+    --yellow-2: #FEF6C3;
+
+    --red: #EE7A6D;
+    --red-1: #F4ACA4;
+    --red-2: #F8CDC9;
+
 }
 
 body {
