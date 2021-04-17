@@ -2,6 +2,7 @@
 import os
 import pathlib
 import shutil
+from typing import Optional
 
 import jinja2
 from ruamel.yaml import YAML  # type: ignore
@@ -29,7 +30,19 @@ events = [event for event in events if event["published"]]
 for static in {"style.css", "logo.svg"}:
     shutil.copy(web_dir / static, build_dir)
 
-jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(web_dir))
+for directory in {"img"}:
+    shutil.copytree(web_dir / directory, build_dir / directory)
+
+
+def load(template_name: str) -> Optional[str]:
+    template_file = web_dir / template_name
+    if template_file.exists():
+        return template_file.read_text()
+    else:
+        return None
+
+
+jinja_env = jinja2.Environment(loader=jinja2.FunctionLoader(load))
 
 for page in {"index.html", "about.html", "code-of-conduct.html"}:
     dest_file = build_dir / page
