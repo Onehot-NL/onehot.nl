@@ -186,3 +186,15 @@ nav ul li.active a {
 .event .video {
     grid-area: video;
 }
+
+/* Logo */
+
+a.logo {
+    border: none;
+    display: block;
+    margin-bottom: 4rem;
+}
+
+img.logo {
+    max-width: 50%;
+}

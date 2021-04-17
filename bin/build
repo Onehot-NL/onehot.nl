@@ -25,8 +25,8 @@ build_dir.mkdir(exist_ok=True, parents=True)
 events_file = project_root / "events.yaml"
 events = yaml.load(events_file)
 
-styles = web_dir / "style.css"
-shutil.copy(styles, build_dir)
+for static in {"style.css", "logo.svg"}:
+    shutil.copy(web_dir / static, build_dir)
 
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(web_dir))
 
