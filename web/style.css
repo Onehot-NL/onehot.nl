@@ -57,10 +57,11 @@ html {
     --red: #EE7A6D;
     --red-1: #F4ACA4;
     --red-2: #F8CDC9;
-
 }
 
 body {
+    background: var(--offwhite);
+    color: var(--darkbrown);
     font-weight: 400;
     line-height: 1.75;
 }
@@ -104,9 +105,14 @@ small, .text_small {
 
 a {
     padding: 0;
+    color: var(--onehotblue);
     text-decoration: none;
     line-height: 1.75;
     border-bottom: 2px dotted;
+}
+
+a:visited {
+    color: var(--onehotblue);
 }
 
 /* Sizing & layout */
@@ -142,12 +148,12 @@ nav ul li {
 }
 
 nav ul li.active {
-    background: #000;
+    background: var(--onehotpink);
 }
 
 nav ul li.active a {
-    color: #fff;
-    border-bottom: none;
+    color: var(--offwhite);
+    border: none;
 }
 
 /* Events */
