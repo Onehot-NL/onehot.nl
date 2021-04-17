@@ -1,5 +1,15 @@
-.hypothesis/
+# Compiled python files.
 __pycache__/
+
+# Python virtualenv on OS X.
 .env/
+
+# Build output
 ignore/
+
+# Personal .envrc files (people symlink either .envrc.nix or
+# .envrc.osx)
 .envrc
+
+# Nix result symlinks
+result*
