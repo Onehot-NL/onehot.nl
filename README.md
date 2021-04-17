@@ -4,6 +4,13 @@ Website for our [data science meetup][meetup].
 
  [meetup]:https://www.meetup.com/onehot-data-science-utrecht/
 
+ Onehot uses the following domains:
+ - onehot.nl (canonical)
+ - onehot.eu
+ - onehot.org
+ - 1hot.nl
+ - 1hot.eu
+
 ## Development
 
 There are two options here:
