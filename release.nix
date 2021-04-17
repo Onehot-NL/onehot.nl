@@ -1,5 +1,6 @@
-{ pythonEnv
-, stdenv
+{ pkgs ? import ./nix/nixpkgs.nix {}
+, pythonEnv ? pkgs.python39.withPackages (import ./nix/python-packages.nix)
+, stdenv ? pkgs.stdenv
 }:
 
 stdenv.mkDerivation {
