@@ -1,4 +1,4 @@
-export PROJECT_ROOT="$(readlink -f .)"
+export PROJECT_ROOT="$(greadlink -f .)"
 export PATH="$PROJECT_ROOT/bin:$PATH"
 
 source .env/bin/activate
