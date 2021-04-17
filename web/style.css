@@ -16,11 +16,30 @@ html {
 
     /* Colour scheme */
     --onehotpink: #F72585;
-    --onehotpurple: #7209B7;
-    --onehotblue: #3A0CA3;
+    --onehotpink-0: #D90866;
+    --onehotpink-1: #F962A6;
+    --onehotpink-2: #FB89BC;
 
-    --darkbrown: #322214;
-    --offwhite: #FEFFFE;
+    --onehotpurple: #7209B7;
+    --onehotpurple-0: #540688;
+    --onehotpurple-1: #9B15F4;
+    --onehotpurple-2: #AC3CF6;
+
+    --onehotblue: #3A0CA3;
+    --onehotblue-0: #280972;
+    --onehotblue-1: #4A10D1;
+    --onehotblue-2: #5A1BEE;
+
+    --darkgrey: #282421;
+    --darkgrey-0: #0B0A09;
+    --darkgrey-1: #433C37;
+    --darkgrey-2: #5A5049;
+
+    --lightgrey-2: #D1CCC7;
+    --lightgrey-1: #E3E0DD;
+    --offwhite: #F6F5F4;
+    --truewhite: #FFFFFF;
+
 
     /* Functional colours and shades */
     --lightblue: #4CC9F0;
