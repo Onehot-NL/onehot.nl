@@ -24,6 +24,7 @@ build_dir.mkdir(exist_ok=True, parents=True)
 
 events_file = project_root / "events.yaml"
 events = yaml.load(events_file)
+events = [event for event in events if event["published"]]
 
 for static in {"style.css", "logo.svg"}:
     shutil.copy(web_dir / static, build_dir)

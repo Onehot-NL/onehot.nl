@@ -26,5 +26,7 @@ events to meet like-minded folks and learn about your field.</p>
     <div class="video"><a href="{{ event.video_url }}">Video</a></div>
     {% endif %}
 </div>
+{% else %}
+<p class="large">No events announced yet. Watch this space!</p>
 {% endfor %}
 {% endblock %}
