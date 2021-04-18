@@ -267,3 +267,9 @@ img.logo {
 .organizer img {
     max-width: 100%;
 }
+
+.organizer span.rob-color {
+    background: var(--onehotpink);
+    color: var(--offwhite);
+    padding: 2px;
+}
