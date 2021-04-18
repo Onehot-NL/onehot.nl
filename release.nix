@@ -19,5 +19,6 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out
     cp -r ./ignore/dist $out/public_html
+    cp ./config/headers.json $out/headers.json
   '';
 }
