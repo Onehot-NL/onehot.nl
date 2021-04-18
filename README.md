@@ -43,13 +43,37 @@ $ direnv allow
 ### MacOS
 
 ```
+# Install homebrew if you don't have it already (you have it already if
+# `brew` returns help output instead of "command not found").
+# Follow the instructions that this command prints to set up your shell.
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Now install the following dependencies that your are going to need:
+# Inspect the output of this command to set up direnv and pyenv in your
+# shell config.
 $ brew install overmind direnv watchexec pyenv coreutils
+
+# Now you are ready to set up the project itself.
 $ git clone git@github.com:duijf/onehot.git
-$ pyenv install 3.9.4
-$ pyenv local 3.9.4
+$ cd onehot
+
+# Install an appropriate python version for the project.
+$ pyenv install
+
+# Create a Python virtualenv.
 $ python -m venv .env
+
+# Activate the direnv script to source the virtualenv.
 $ ln -s .envrc.osx .envrc
 $ direnv allow
+
+# At this point, your virtualenv should be loaded. Confirm by
+# checking what Python you are using. This should output a path
+# in the onehot directory.
+$ which python
+/Users/<yourname>/<some>/<path>/<to>/onehot/.env/bin/python
+
+# Install development dependencies and you're all set!
 $ pip install -r requirements.txt
 ```
 
