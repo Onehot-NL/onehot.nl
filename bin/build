@@ -50,14 +50,14 @@ for page in (web_dir / "pages").iterdir():
     front_matter_yaml, template = page.read_text().split("===")
     front_matter = yaml.load(front_matter_yaml)
 
-    url = front_matter["url"].lstrip("/")
+    url = front_matter["url"]
 
-    dest_dir = build_dir / url
-    dest_file = build_dir / url / "index.html"
+    dest_dir = build_dir / url.lstrip("/")
+    dest_file = dest_dir / "index.html"
 
     dest_dir.mkdir(exist_ok=True)
     rendered = jinja_env.from_string(template).render(
-        events=events, active_page=page
+        events=events, active_page=url
     )
     dest_file.write_text(rendered)
 
