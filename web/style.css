@@ -209,3 +209,16 @@ a.logo {
 img.logo {
     max-width: 50%;
 }
+
+/* Organizers */
+
+.organizers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.organizer img {
+    max-width: 100%;
+}
