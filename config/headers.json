@@ -1,0 +1,13 @@
+{
+    "content-security-policy": [
+        "frame-ancestors 'none';",
+        "base-uri 'none';",
+        "form-action 'none';",
+        "default-src 'none';",
+        "style-src 'self';",
+        "img-src 'self';",
+        "font-src 'self';"
+    ],
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-content-type-options": "nosniff"
+}

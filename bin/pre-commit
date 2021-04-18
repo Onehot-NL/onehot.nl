@@ -51,12 +51,20 @@ def run_lints(mode: Mode) -> None:
     repo_root = pathlib.Path(os.environ["PROJECT_ROOT"])
     build_script = repo_root / "bin" / "build"
     pre_commit_script = repo_root / "bin" / "pre-commit"
+    serve_script = repo_root / "bin" / "serve"
 
     check_mode = mode == Mode.CHECK
     extra_args = ["--check", "--diff"] if check_mode else []
 
     run_lint(
-        ["black", *extra_args, "--quiet", build_script, pre_commit_script]
+        [
+            "black",
+            *extra_args,
+            "--quiet",
+            build_script,
+            pre_commit_script,
+            serve_script,
+        ]
     )
     run_lint(
         [
@@ -68,8 +76,13 @@ def run_lints(mode: Mode) -> None:
         ]
     )
     run_lint(["flake8", build_script, pre_commit_script])
+
+    # We pass these separately to mypy because otherwise mypy complains that
+    # there are multiple __main__ entrypoints defined. It's a little wierd, but
+    # I don't want to investigate. Let's just work around this for now.
     run_lint(["mypy", "--strict", build_script])
     run_lint(["mypy", "--strict", pre_commit_script])
+    run_lint(["mypy", "--strict", serve_script])
 
 
 def install_git_hook() -> None:

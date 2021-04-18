@@ -1,7 +1,57 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python
+"""
+Serve the built website using a development server on localhost:8000
+"""
 
-# Serve the built website using a development server on localhost:8000
+import json
+import functools
+import os
+import pathlib
+from typing import Any, Dict, List, Union
+from http.server import HTTPServer, SimpleHTTPRequestHandler
 
-set -eufo pipefail
-cd $PROJECT_ROOT
-python -m http.server -d $PROJECT_ROOT/ignore/dist/
+
+class RequestHandler(SimpleHTTPRequestHandler):
+    """
+    Custom request handler for our development server. Passes options to
+    the regular handler, but also overrides headers.
+    """
+
+    def __init__(
+        self,
+        *args: Any,
+        custom_headers: Dict[str, Union[str, List[str]]],
+        **kwargs: Any
+    ):
+        self.custom_headers = custom_headers
+        super().__init__(*args, **kwargs)
+
+    def end_headers(self) -> None:
+        # Set custom headers before flushing the full header list.
+        for header, value in self.custom_headers.items():
+            # Headers are either a plain string or a list of strings
+            # to be concatenated. (To help with long lines in the config
+            # file).
+            value = value if isinstance(value, str) else " ".join(value)
+            self.send_header(header, value)
+
+        super().end_headers()
+
+
+def main() -> None:
+    project_root = pathlib.Path(os.environ["PROJECT_ROOT"])
+    headers = json.load((project_root / "config" / "headers.json").open())
+
+    request_handler = functools.partial(
+        RequestHandler,
+        directory=project_root / "ignore" / "dist",
+        custom_headers=headers,
+    )
+
+    server_addres = ("", 8000)
+    server = HTTPServer(server_addres, request_handler)
+    server.serve_forever()
+
+
+if __name__ == "__main__":
+    main()
