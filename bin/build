@@ -32,7 +32,7 @@ events = [event for event in events if event["published"]]
 for static in {"style.css", "logo.svg"}:
     shutil.copy(web_dir / static, build_dir)
 
-for directory in {"img"}:
+for directory in {"img", "font"}:
     shutil.copytree(web_dir / directory, build_dir / directory)
 
 
