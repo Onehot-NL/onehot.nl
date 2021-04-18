@@ -50,7 +50,11 @@ def main() -> None:
 
     server_addres = ("", 8000)
     server = HTTPServer(server_addres, request_handler)
-    server.serve_forever()
+    print("Starting server on localhost:8000")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("Exiting..")
 
 
 if __name__ == "__main__":
