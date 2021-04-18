@@ -15,7 +15,7 @@ Website for our [data science meetup][meetup].
 
 There are two options here:
 
- - Install [`nix`][nix] and [`direnv`][diren] and use our managed
+ - Install [`nix`][nix] and [`direnv`][direnv] and use our managed
    development environment.
  - Use a more traditional development environment based on Python's
    virtualenvs and installing dependencies manually. You probably want
