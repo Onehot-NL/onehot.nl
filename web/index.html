@@ -27,9 +27,9 @@ learn more about our field.</p>
     {{ speaker.name }} <em>({{ speaker.affiliation }})</em>{{ sep }}
     {% endfor %}
     </p>
-    <div class="rsvp"><a href="{{ event.meetup_url }}">Details & RSVP</a></div>
+    <div class="rsvp"><a href="{{ event.meetup_url }}" target="_blank" rel="noreferrer">Details & RSVP</a></div>
     {% if event.video_url %}
-    <div class="video"><a href="{{ event.video_url }}">Video</a></div>
+    <div class="video"><a href="{{ event.video_url }}" target="_blank" rel="noreferrer">Video</a></div>
     {% endif %}
 </div>
 {% else %}
