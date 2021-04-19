@@ -16,3 +16,6 @@ result*
 
 # MacOS files
 .DS_Store
+
+# PyCharm + IntelliJ
+.idea
