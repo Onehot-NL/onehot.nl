@@ -13,3 +13,6 @@ ignore/
 
 # Nix result symlinks
 result*
+
+# MacOS files
+.DS_Store
