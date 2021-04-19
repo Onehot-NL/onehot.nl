@@ -29,7 +29,7 @@ events = yaml.load(events_file)
 events = [event for event in events if event["published"]]
 
 
-for static in {"style.css", "logo.svg"}:
+for static in {"style.css", "logo.svg", "sitemap.xml", "robots.txt"}:
     shutil.copy(web_dir / static, build_dir)
 
 for directory in {"img", "font"}:
