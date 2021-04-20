@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import functools
 import os
 import pathlib
 import shutil
@@ -7,8 +8,6 @@ from typing import Optional
 import jinja2
 from ruamel.yaml import YAML  # type: ignore
 
-print("Building..")
-
 
 def get_yaml() -> YAML:
     yaml = YAML(typ="safe")
@@ -16,27 +15,7 @@ def get_yaml() -> YAML:
     return yaml
 
 
-yaml = get_yaml()
-
-project_root = pathlib.Path(os.environ["PROJECT_ROOT"])
-web_dir = project_root / "web"
-build_dir = project_root / "ignore" / "dist"
-shutil.rmtree(build_dir, ignore_errors=True)
-build_dir.mkdir(exist_ok=True, parents=True)
-
-events_file = project_root / "events.yaml"
-events = yaml.load(events_file)
-events = [event for event in events if event["published"]]
-
-
-for static in {"style.css", "logo.svg", "sitemap.xml", "robots.txt"}:
-    shutil.copy(web_dir / static, build_dir)
-
-for directory in {"img", "font"}:
-    shutil.copytree(web_dir / directory, build_dir / directory)
-
-
-def load(template_name: str) -> Optional[str]:
+def load(web_dir: pathlib.Path, template_name: str) -> Optional[str]:
     template_file = web_dir / "templates" / template_name
     if template_file.exists():
         return template_file.read_text()
@@ -44,21 +23,47 @@ def load(template_name: str) -> Optional[str]:
         return None
 
 
-jinja_env = jinja2.Environment(loader=jinja2.FunctionLoader(load))
+def main() -> None:
+    print("Building..")
 
-for page in (web_dir / "pages").iterdir():
-    front_matter_yaml, template = page.read_text().split("===")
-    front_matter = yaml.load(front_matter_yaml)
+    yaml = get_yaml()
 
-    url = front_matter["url"]
+    project_root = pathlib.Path(os.environ["PROJECT_ROOT"])
+    web_dir = project_root / "web"
+    build_dir = project_root / "ignore" / "dist"
+    shutil.rmtree(build_dir, ignore_errors=True)
+    build_dir.mkdir(exist_ok=True, parents=True)
 
-    dest_dir = build_dir / url.lstrip("/")
-    dest_file = dest_dir / "index.html"
+    events_file = project_root / "events.yaml"
+    events = yaml.load(events_file)
+    events = [event for event in events if event["published"]]
 
-    dest_dir.mkdir(exist_ok=True)
-    rendered = jinja_env.from_string(template).render(
-        events=events, active_page=url
-    )
-    dest_file.write_text(rendered)
+    for static in {"style.css", "logo.svg", "sitemap.xml", "robots.txt"}:
+        shutil.copy(web_dir / static, build_dir)
 
-print("Done.")
+    for directory in {"img", "font"}:
+        shutil.copytree(web_dir / directory, build_dir / directory)
+
+    load_fun = functools.partial(load, web_dir)
+    jinja_env = jinja2.Environment(loader=jinja2.FunctionLoader(load_fun))
+
+    for page in (web_dir / "pages").iterdir():
+        front_matter_yaml, template = page.read_text().split("===")
+        front_matter = yaml.load(front_matter_yaml)
+
+        url = front_matter["url"]
+
+        dest_dir = build_dir / url.lstrip("/")
+        dest_file = dest_dir / "index.html"
+
+        dest_dir.mkdir(exist_ok=True)
+        rendered = jinja_env.from_string(template).render(
+            events=events, active_page=url
+        )
+        dest_file.write_text(rendered)
+
+    print("Done.")
+
+
+if __name__ == "__main__":
+    main()
