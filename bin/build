@@ -2,6 +2,8 @@
 import functools
 import os
 import shutil
+import subprocess
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterator, Optional
@@ -98,6 +100,45 @@ def site() -> None:
         url_index_file.write_text(rendered)
 
     print("Done.")
+
+
+@cli.command()
+def sitemap() -> None:
+    """Update sitemap.xml"""
+
+    yaml = get_yaml()
+    dirs = Dirs.from_env()
+
+    last_modified = {}
+    for page in iter_pages(yaml, dirs):
+        url = page.front_matter.url
+
+        # Fetch last modification date from git. Options:
+        # `-1` - Only display the most recent commit message.
+        # `--pretty=format:%cI` - Show committer date in strict ISO8601.
+        last_modified[url] = subprocess.run(
+            ["git", "log", "-1", "--pretty=format:%cI", page.path],
+            check=True,
+            text=True,
+            capture_output=True,
+        ).stdout.strip()
+
+    # Build the sitemap
+    urlset_node = ET.Element("urlset")
+    urlset_node.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
+
+    for url, timestamp in last_modified.items():
+        url_node = ET.SubElement(urlset_node, "url")
+        loc_node = ET.SubElement(url_node, "loc")
+        loc_node.text = f"https://onehot.nl{url}"
+        lastmod_node = ET.SubElement(url_node, "lastmod")
+        lastmod_node.text = timestamp
+
+    # This method is not picked up by mypy / PyCharm, but it does exist.
+    ET.indent(urlset_node)  # type: ignore
+    (dirs.web / "sitemap.xml").write_bytes(
+        ET.tostring(urlset_node, xml_declaration=True, encoding="utf-8")
+    )
 
 
 if __name__ == "__main__":
