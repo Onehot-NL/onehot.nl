@@ -4,10 +4,13 @@ import os
 import shutil
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Any, Iterator, Optional
 
 import jinja2
+import typer
 from ruamel.yaml import YAML  # type: ignore
+
+cli = typer.Typer(add_completion=False)
 
 
 @dataclass
@@ -20,6 +23,22 @@ class Dirs:
     def from_env(cls) -> "Dirs":
         root = Path(os.environ["PROJECT_ROOT"])
         return cls(root=root, web=root / "web", build=root / "ignore" / "dist")
+
+
+@dataclass
+class FrontMatter:
+    url: str
+
+    @classmethod
+    def from_yaml(cls, yaml_val: Any) -> "FrontMatter":
+        return cls(url=yaml_val["url"])
+
+
+@dataclass
+class Page:
+    path: Path
+    front_matter: FrontMatter
+    template: str
 
 
 def get_yaml() -> YAML:
@@ -36,7 +55,16 @@ def load(dirs: Dirs, template_name: str) -> Optional[str]:
         return None
 
 
-def main() -> None:
+def iter_pages(yaml: YAML, dirs: Dirs) -> Iterator[Page]:
+    for path in (dirs.web / "pages").iterdir():
+        front_matter_yaml, template = path.read_text().split("===")
+        front_matter = FrontMatter.from_yaml(yaml.load(front_matter_yaml))
+        yield Page(path, front_matter, template)
+
+
+@cli.command()
+def site() -> None:
+    """Build the site"""
     print("Building..")
 
     yaml = get_yaml()
@@ -58,17 +86,13 @@ def main() -> None:
     events = yaml.load(events_file)
     events = [event for event in events if event["published"]]
 
-    for page in (dirs.web / "pages").iterdir():
-        front_matter_yaml, template = page.read_text().split("===")
-        front_matter = yaml.load(front_matter_yaml)
-
-        url = front_matter["url"]
-
+    for page in iter_pages(yaml, dirs):
+        url = page.front_matter.url
         url_dir = dirs.build / url.lstrip("/")
         url_index_file = url_dir / "index.html"
 
         url_dir.mkdir(exist_ok=True)
-        rendered = jinja_env.from_string(template).render(
+        rendered = jinja_env.from_string(page.template).render(
             events=events, active_page=url
         )
         url_index_file.write_text(rendered)
@@ -77,4 +101,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    cli()
