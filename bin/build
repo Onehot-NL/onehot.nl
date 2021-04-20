@@ -1,12 +1,25 @@
 #!/usr/bin/env python
 import functools
 import os
-import pathlib
 import shutil
+from dataclasses import dataclass
+from pathlib import Path
 from typing import Optional
 
 import jinja2
 from ruamel.yaml import YAML  # type: ignore
+
+
+@dataclass
+class Dirs:
+    root: Path
+    web: Path
+    build: Path
+
+    @classmethod
+    def from_env(cls) -> "Dirs":
+        root = Path(os.environ["PROJECT_ROOT"])
+        return cls(root=root, web=root / "web", build=root / "ignore" / "dist")
 
 
 def get_yaml() -> YAML:
@@ -15,8 +28,8 @@ def get_yaml() -> YAML:
     return yaml
 
 
-def load(web_dir: pathlib.Path, template_name: str) -> Optional[str]:
-    template_file = web_dir / "templates" / template_name
+def load(dirs: Dirs, template_name: str) -> Optional[str]:
+    template_file = dirs.web / "templates" / template_name
     if template_file.exists():
         return template_file.read_text()
     else:
@@ -27,40 +40,38 @@ def main() -> None:
     print("Building..")
 
     yaml = get_yaml()
+    dirs = Dirs.from_env()
 
-    project_root = pathlib.Path(os.environ["PROJECT_ROOT"])
-    web_dir = project_root / "web"
-    build_dir = project_root / "ignore" / "dist"
-    shutil.rmtree(build_dir, ignore_errors=True)
-    build_dir.mkdir(exist_ok=True, parents=True)
+    shutil.rmtree(dirs.build, ignore_errors=True)
+    dirs.build.mkdir(exist_ok=True, parents=True)
 
-    events_file = project_root / "events.yaml"
+    for static in {"style.css", "logo.svg", "sitemap.xml", "robots.txt"}:
+        shutil.copy(dirs.web / static, dirs.build)
+
+    for directory in {"img", "font"}:
+        shutil.copytree(dirs.web / directory, dirs.build / directory)
+
+    load_fun = functools.partial(load, dirs)
+    jinja_env = jinja2.Environment(loader=jinja2.FunctionLoader(load_fun))
+
+    events_file = dirs.root / "events.yaml"
     events = yaml.load(events_file)
     events = [event for event in events if event["published"]]
 
-    for static in {"style.css", "logo.svg", "sitemap.xml", "robots.txt"}:
-        shutil.copy(web_dir / static, build_dir)
-
-    for directory in {"img", "font"}:
-        shutil.copytree(web_dir / directory, build_dir / directory)
-
-    load_fun = functools.partial(load, web_dir)
-    jinja_env = jinja2.Environment(loader=jinja2.FunctionLoader(load_fun))
-
-    for page in (web_dir / "pages").iterdir():
+    for page in (dirs.web / "pages").iterdir():
         front_matter_yaml, template = page.read_text().split("===")
         front_matter = yaml.load(front_matter_yaml)
 
         url = front_matter["url"]
 
-        dest_dir = build_dir / url.lstrip("/")
-        dest_file = dest_dir / "index.html"
+        url_dir = dirs.build / url.lstrip("/")
+        url_index_file = url_dir / "index.html"
 
-        dest_dir.mkdir(exist_ok=True)
+        url_dir.mkdir(exist_ok=True)
         rendered = jinja_env.from_string(template).render(
             events=events, active_page=url
         )
-        dest_file.write_text(rendered)
+        url_index_file.write_text(rendered)
 
     print("Done.")
 
