@@ -1,32 +1,30 @@
 Nodig voor launch
 
- - Website
-   - Over ons + contact
-   - Styling
-   - Code of conduct
-   - Hosting
- - Wiebetaaltwat/splitwise/drive map met bonnetjes
- - Fondsaanvragen
-   - Gemeente utrecht
+ - [x] Website
+   - [x] Over ons + contact
+   - [x] Styling
+   - [x] Code of conduct
+   - [x] Hosting
+ - [ ] Wiebetaaltwat/splitwise/drive map met bonnetjes
+ - [ ] Fondsaanvraag Gemeente Utrecht
    - We proberen de stichtingsoprichting in deze financieringsaanvraag
      te fietsen.
    - De helft van het geld moeten we lappen, maar dat kunnen we later
      terugvragen als we een stichting op hebben gericht.
+ - [ ] Discord / community pagina.
 
 Promotie
 
- - Meetup
- - Sticky groepen
- - Bol.com
- - NJM
- - Gooi het op LinkedIn
- - Twitter: niet echt nodig.
- - Werk
- - Discord / community pagina.
+ - [x] Meetup
+ - [ ] Sticky groepen
+ - [ ] Bol.com
+ - [ ] NJM
+ - [ ] Gooi het op LinkedIn
+ - [ ] Werk
 
 Succescriteria
 
- - In ieder geval 2 meetups doen.
+ - We doen 5 meetups.
  - Potentiele metrics
    - Unieke bezoekers
    - Mensen in de meetup groep / discord
