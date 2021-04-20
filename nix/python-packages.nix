@@ -10,4 +10,5 @@ in
     ps.jinja2
     ps.mypy
     ps.ruamel_yaml
+    ps.typer
   ]
