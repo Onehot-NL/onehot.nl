@@ -7,11 +7,12 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
-from typing import Any, Iterator, List, Optional
+from typing import Iterator, List, Optional
 
 import jinja2
 import typer
-from ruamel.yaml import YAML  # type: ignore
+import yaml
+from mashumaro import DataClassYAMLMixin
 
 cli = typer.Typer(add_completion=False)
 
@@ -29,29 +30,25 @@ class Dirs:
 
 
 @dataclass
-class FrontMatter:
+class FrontMatter(DataClassYAMLMixin):
     url: str
-
-    @classmethod
-    def from_yaml(cls, yaml_val: Any) -> "FrontMatter":
-        return cls(url=yaml_val["url"])
 
 
 @dataclass
-class Page:
+class Page(DataClassYAMLMixin):
     path: Path
     front_matter: FrontMatter
     template: str
 
 
 @dataclass
-class Link:
+class Link(DataClassYAMLMixin):
     name: str
     url: str
 
 
 @dataclass
-class Speaker:
+class Speaker(DataClassYAMLMixin):
     name: str
     affiliation: str
     bio: str
@@ -60,7 +57,7 @@ class Speaker:
 
 
 @dataclass
-class Talk:
+class Talk(DataClassYAMLMixin):
     title: str
     subtitle: str
     speaker: Speaker
@@ -73,19 +70,13 @@ class EventType(Enum):
 
 
 @dataclass
-class Event:
+class Event(DataClassYAMLMixin):
     title: str
     type: EventType
-    talks: List[Talk]
+    talk: List[Talk]
     date: str
     meetup_url: str
     published: bool
-
-
-def get_yaml() -> YAML:
-    yaml = YAML(typ="safe")
-    yaml.default_flow_style = False
-    return yaml
 
 
 def load(dirs: Dirs, template_name: str) -> Optional[str]:
@@ -96,11 +87,17 @@ def load(dirs: Dirs, template_name: str) -> Optional[str]:
         return None
 
 
-def iter_pages(yaml: YAML, dirs: Dirs) -> Iterator[Page]:
+def iter_pages(dirs: Dirs) -> Iterator[Page]:
     for path in (dirs.web / "pages").iterdir():
         front_matter_yaml, template = path.read_text().split("===")
-        front_matter = FrontMatter.from_yaml(yaml.load(front_matter_yaml))
+        front_matter = FrontMatter.from_yaml(front_matter_yaml)
         yield Page(path, front_matter, template)
+
+
+def iter_events(dirs: Dirs) -> Iterator[Event]:
+    events_file = dirs.root / "events.yaml"
+    for event_dict in yaml.safe_load(events_file.read_text()):
+        yield Event.from_dict(event_dict)
 
 
 @cli.command()
@@ -108,7 +105,6 @@ def site() -> None:
     """Build the site"""
     print("Building..")
 
-    yaml = get_yaml()
     dirs = Dirs.from_env()
 
     shutil.rmtree(dirs.build, ignore_errors=True)
@@ -123,11 +119,9 @@ def site() -> None:
     load_fun = functools.partial(load, dirs)
     jinja_env = jinja2.Environment(loader=jinja2.FunctionLoader(load_fun))
 
-    events_file = dirs.root / "events.yaml"
-    events = yaml.load(events_file)
-    events = [event for event in events if event["published"]]
+    events = list(iter_events(dirs))
 
-    for page in iter_pages(yaml, dirs):
+    for page in iter_pages(dirs):
         url = page.front_matter.url
         url_dir = dirs.build / url.lstrip("/")
         url_index_file = url_dir / "index.html"
@@ -145,11 +139,10 @@ def site() -> None:
 def sitemap() -> None:
     """Update sitemap.xml"""
 
-    yaml = get_yaml()
     dirs = Dirs.from_env()
 
     last_modified = {}
-    for page in iter_pages(yaml, dirs):
+    for page in iter_pages(dirs):
         url = page.front_matter.url
 
         # Fetch last modification date from git. Options:
