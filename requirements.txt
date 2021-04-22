@@ -2,6 +2,7 @@ black
 flake8
 isort
 jinja2
+mashumaro
 mypy
 ruamel_yaml
 typer

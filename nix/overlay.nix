@@ -2,7 +2,7 @@ self: super:
 rec {
   python39 = super.python39.override {
     packageOverrides = pythonSelf: pythonSuper: {
-      markdown2 = pythonSelf.callPackage ./markdown2.nix {};
+      mashumaro = pythonSelf.callPackage ./mashumaro.nix {};
     };
   };
 
