@@ -297,3 +297,16 @@ img.logo {
     color: var(--offwhite);
     padding: 2px;
 }
+
+.icon-link {
+    border: none;
+}
+
+.icon-link .text {
+    border-bottom: 2px dotted;
+}
+
+.icon-link .icon {
+    max-width: 32px;
+    margin-bottom: -10px;
+}
