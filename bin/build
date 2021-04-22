@@ -5,8 +5,9 @@ import shutil
 import subprocess
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
+from enum import Enum
 from pathlib import Path
-from typing import Any, Iterator, Optional
+from typing import Any, Iterator, List, Optional
 
 import jinja2
 import typer
@@ -41,6 +42,44 @@ class Page:
     path: Path
     front_matter: FrontMatter
     template: str
+
+
+@dataclass
+class Link:
+    name: str
+    url: str
+
+
+@dataclass
+class Speaker:
+    name: str
+    affiliation: str
+    bio: str
+    photograph: str
+    external_url: List[Link]
+
+
+@dataclass
+class Talk:
+    title: str
+    subtitle: str
+    speaker: Speaker
+    abstract: str
+    keywords: str
+
+
+class EventType(Enum):
+    MEETUP = "meetup"
+
+
+@dataclass
+class Event:
+    title: str
+    type: EventType
+    talks: List[Talk]
+    date: str
+    meetup_url: str
+    published: bool
 
 
 def get_yaml() -> YAML:
