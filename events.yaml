@@ -20,7 +20,7 @@ events:
       speaker:
         name: Bas de Kan
         affiliation: Alliander / Navara
-        bio:
+        bio: As a data science consultant in the energy field I combine my interest in data science with sustainability. My main interests are in machine learning/deep learning, but I also have a solid background in computer science, mainly code optimisation.
         photo_url: img/speakers/basdekan.jpg
         external_urls:
           - text: Linkedin
