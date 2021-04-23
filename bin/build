@@ -75,8 +75,11 @@ class EventType(Enum):
 class Event(DataClassYAMLMixin):
     title: str
     type: EventType
+    description: str
     talks: List[Talk]
     date: str
+    start_time: str
+    location: Link
     meetup_url: str
     published: bool
 
