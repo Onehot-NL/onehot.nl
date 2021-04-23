@@ -1,16 +1,16 @@
 events:
 - title: A world in transition
   type: meetup
-  talk:
+  talks:
     - title:
       subtitle:
       speaker:
         name: Dr Jazmin Zatarain Salazar
         affiliation: TU Delft
         bio:
-        photograph:
-        external_url:
-          - name: TU Delft
+        photo_url:
+        external_urls:
+          - text: TU Delft
             url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
       abstract:
       keywords:
@@ -20,9 +20,9 @@ events:
         name: Bas de Kan
         affiliation: Alliander / Navara
         bio:
-        photograph: img/speakers/basdekan.png
-        external_url:
-          - name:
+        photo_url: img/speakers/basdekan.png
+        external_urls:
+          - text:
             url:
       abstract: The world is moving fast towards more sustainable energy, but it is difficult for grid operators to keep up! Do they even know how prepared they are for the transition and can they mitigate potential failures of the grid while the necessary infrastructure is not yet finished? In this talk we will look at some examples of how Alliander, one of the largests grid operators in the Netherlands, takes on some of the challenges of the energy transition. We will start by looking at how data can give better insight into the scope of these challenges. Afterwards we will look at how a smart grid or a smart customer can already mitigate a lot of these challenges without laying a single new cable in the ground.
       keywords: Energy transition, Smart grid

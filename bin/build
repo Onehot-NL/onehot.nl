@@ -45,7 +45,7 @@ class Page(DataClassYAMLMixin):
 
 @dataclass
 class Link(DataClassYAMLMixin):
-    name: str
+    text: str
     url: str
 
 
@@ -54,8 +54,8 @@ class Speaker(DataClassYAMLMixin):
     name: str
     affiliation: str
     bio: str
-    photograph: str
-    external_url: List[Link]
+    photo_url: str
+    external_urls: List[Link]
 
 
 @dataclass
