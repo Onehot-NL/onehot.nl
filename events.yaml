@@ -1,6 +1,7 @@
 events:
 - title: A world in transition
   type: meetup
+  description:
   talks:
     - title:
       subtitle:
@@ -20,12 +21,16 @@ events:
         name: Bas de Kan
         affiliation: Alliander / Navara
         bio:
-        photo_url: img/speakers/basdekan.png
+        photo_url: img/speakers/basdekan.jpg
         external_urls:
-          - text:
-            url:
+          - text: Linkedin
+            url: https://www.linkedin.com/in/bas-de-kan-168aa0112/
       abstract: The world is moving fast towards more sustainable energy, but it is difficult for grid operators to keep up! Do they even know how prepared they are for the transition and can they mitigate potential failures of the grid while the necessary infrastructure is not yet finished? In this talk we will look at some examples of how Alliander, one of the largests grid operators in the Netherlands, takes on some of the challenges of the energy transition. We will start by looking at how data can give better insight into the scope of these challenges. Afterwards we will look at how a smart grid or a smart customer can already mitigate a lot of these challenges without laying a single new cable in the ground.
       keywords: Energy transition, Smart grid
-  date: May 18th, 2021
+  date: 2021-05-18
+  start_time: 19:00:00 CET
+  location:
+    text: Discord
+    url: https://discord.gg/5Y8g3EWBZ2
   meetup_url: https://www.meetup.com/onehot-data-science-utrecht/
   published: false
