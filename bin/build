@@ -11,7 +11,6 @@ from typing import Iterator, List, Optional
 
 import jinja2
 import typer
-import yaml
 from mashumaro import DataClassYAMLMixin
 
 cli = typer.Typer(add_completion=False)
@@ -73,10 +72,15 @@ class EventType(Enum):
 class Event(DataClassYAMLMixin):
     title: str
     type: EventType
-    talk: List[Talk]
+    talks: List[Talk]
     date: str
     meetup_url: str
     published: bool
+
+
+@dataclass
+class State(DataClassYAMLMixin):
+    events: List[Event]
 
 
 def load(dirs: Dirs, template_name: str) -> Optional[str]:
@@ -94,10 +98,9 @@ def iter_pages(dirs: Dirs) -> Iterator[Page]:
         yield Page(path, front_matter, template)
 
 
-def iter_events(dirs: Dirs) -> Iterator[Event]:
+def load_state(dirs: Dirs) -> State:
     events_file = dirs.root / "events.yaml"
-    for event_dict in yaml.safe_load(events_file.read_text()):
-        yield Event.from_dict(event_dict)
+    return State.from_yaml(events_file.read_text())
 
 
 @cli.command()
@@ -119,7 +122,7 @@ def site() -> None:
     load_fun = functools.partial(load, dirs)
     jinja_env = jinja2.Environment(loader=jinja2.FunctionLoader(load_fun))
 
-    events = list(iter_events(dirs))
+    state = load_state(dirs)
 
     for page in iter_pages(dirs):
         url = page.front_matter.url
@@ -128,7 +131,7 @@ def site() -> None:
 
         url_dir.mkdir(exist_ok=True)
         rendered = jinja_env.from_string(page.template).render(
-            events=events, active_page=url
+            events=state.events, active_page=url
         )
         url_index_file.write_text(rendered)
 
