@@ -141,6 +141,7 @@ def site() -> None:
     jinja_env = jinja2.Environment(loader=jinja2.FunctionLoader(load_fun))
 
     state = load_state(dirs)
+    published_events = [e for e in state.events if e.published]
 
     for page in iter_pages(dirs):
         url = page.front_matter.url
@@ -149,11 +150,11 @@ def site() -> None:
 
         url_dir.mkdir(exist_ok=True)
         rendered = jinja_env.from_string(page.template).render(
-            events=state.events, active_page=url
+            events=published_events, active_page=url
         )
         url_index_file.write_text(rendered)
 
-    for event in state.events:
+    for event in published_events:
         event_index_file = dirs.build / "event" / event.date / "index.html"
         event_index_file.parent.mkdir(exist_ok=True, parents=True)
         rendered = jinja_env.get_template("event.html").render(event=event)
