@@ -104,6 +104,7 @@ def iter_pages(dirs: Dirs) -> Iterator[Page]:
         except ValidationError as e:
             show_validation_error(path.relative_to(dirs.root), e)
 
+        # noinspection PyUnboundLocalVariable
         yield Page(path=path, front_matter=front_matter, template=template)
 
 
