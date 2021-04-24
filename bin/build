@@ -90,9 +90,7 @@ def load(dirs: Dirs, template_name: str) -> Optional[str]:
 
 
 def yaml_decode(val: str) -> Any:
-    yaml = YAML(typ="safe")
-    yaml.default_flow_style = False
-    return yaml.load(val)
+    return YAML(typ="base").load(val)
 
 
 def iter_pages(dirs: Dirs) -> Iterator[Page]:
