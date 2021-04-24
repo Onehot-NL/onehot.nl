@@ -8,8 +8,8 @@ in
     ps.flake8
     ps.isort
     ps.jinja2
-    ps.mashumaro
     ps.mypy
+    ps.pydantic
     ps.ruamel_yaml
     ps.typer
   ]
