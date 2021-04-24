@@ -208,6 +208,12 @@ def site() -> None:
         )
         url_index_file.write_text(rendered)
 
+    for event in state.events:
+        event_index_file = dirs.build / "event" / event.date / "index.html"
+        event_index_file.parent.mkdir(exist_ok=True, parents=True)
+        rendered = jinja_env.get_template("event.html").render(event=event)
+        event_index_file.write_text(rendered)
+
     print("Done.")
 
 
