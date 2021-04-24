@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block header %}
+<h1>{{ event.title }}</h1>
+<p>{{ event.description }}</p>
+{% endblock %}
+
+{% block main %}
+{% for talk in talks %}
+<h2>Talk: {{ talk.title }}</h2>
+<h3>{{ talk.subtitle }}</h3>
+
+<p>{{ talk.abstract }}</p>
+
+<h3>Speaker: {{ talk.speaker.name }}</h3>
+
+<p>{{ talk.speaker.bio }}</p>
+
+<img src="{{ talk.speaker.photo_url }}"></img>
+{% endfor %}
+
+{% endblock %}
