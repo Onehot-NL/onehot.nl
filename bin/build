@@ -76,6 +76,18 @@ class Event(BaseModel):
     meetup_url: str
     published: bool
 
+    @property
+    def title_escaped(self) -> str:
+        return self.title.lower().replace(" ", "-")
+
+    @property
+    def url(self) -> str:
+        return f"/events/{self.date}/{self.title_escaped}"
+
+    @property
+    def index_file(self) -> Path:
+        return Path("events") / self.date / self.title_escaped / "index.html"
+
 
 class State(BaseModel):
     events: List[Event]
@@ -156,7 +168,7 @@ def site() -> None:
         url_index_file.write_text(rendered)
 
     for event in published_events:
-        event_index_file = dirs.build / "event" / event.date / "index.html"
+        event_index_file = dirs.build / event.index_file
         event_index_file.parent.mkdir(exist_ok=True, parents=True)
         rendered = jinja_env.get_template("event.html").render(event=event)
         event_index_file.write_text(rendered)
