@@ -1,20 +1,20 @@
 events:
 - title: A world in transition
   type: meetup
-  description:
+  description: ""
   talks:
-    - title:
-      subtitle:
+    - title: ""
+      subtitle: ""
       speaker:
         name: Dr Jazmin Zatarain Salazar
         affiliation: TU Delft
-        bio:
-        photo_url:
+        bio: ""
+        photo_url: ""
         external_urls:
           - text: TU Delft
             url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
-      abstract:
-      keywords:
+      abstract: ""
+      keywords: ""
     - title: Will my neighbour's Tesla consume all my power?
       subtitle: Managing the energy transition at Alliander
       speaker:
