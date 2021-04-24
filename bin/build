@@ -9,10 +9,11 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
-from typing import Iterator, List, NoReturn, Optional
+from typing import Any, Dict, Iterator, List, NoReturn, Optional, Union
 
 import jinja2
 import typer
+import yaml
 from mashumaro import DataClassYAMLMixin
 from mashumaro.exceptions import InvalidFieldValue, MissingField
 
@@ -97,17 +98,26 @@ def load(dirs: Dirs, template_name: str) -> Optional[str]:
         return None
 
 
+def yaml_decoder(packed: Union[str, bytes], **kwargs: Any) -> Dict[Any, Any]:
+    val: Dict[Any, Any] = yaml.load(packed, Loader=yaml.BaseLoader)
+    return val
+
+
 def iter_pages(dirs: Dirs) -> Iterator[Page]:
     for path in (dirs.web / "pages").iterdir():
         front_matter_yaml, template = path.read_text().split("===")
-        front_matter = FrontMatter.from_yaml(front_matter_yaml)
+        # noinspection PyTypeChecker
+        front_matter = FrontMatter.from_yaml(
+            front_matter_yaml, decoder=yaml_decoder
+        )
         yield Page(path, front_matter, template)
 
 
 def load_state(dirs: Dirs) -> State:
     events_file = dirs.root / "events.yaml"
     try:
-        return State.from_yaml(events_file.read_text())
+        # noinspection PyTypeChecker
+        return State.from_yaml(events_file.read_text(), decoder=yaml_decoder)
     except InvalidFieldValue as e:
         pretty_print(events_file.relative_to(dirs.root), e)
 
