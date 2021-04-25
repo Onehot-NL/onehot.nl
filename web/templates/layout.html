@@ -1,5 +1,5 @@
 {% macro active(page_name) -%}
-{% if active_page == page_name %}class="active"{% endif %}
+{% if active_page is defined and active_page == page_name %}class="active"{% endif %}
 {%- endmacro %}
 
 <!DOCTYPE html>

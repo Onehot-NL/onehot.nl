@@ -25,15 +25,12 @@ learn more about our field.</p>
     <p class="date"><strong>Date:</strong> {{ event.date }}</p>
     <p class="speakers">
     <strong>Seakers:</strong>
-    {% for speaker in event.speakers %}
+    {% for talk in event.talks %}
     {% set sep = ", " if not loop.last else "" %}
-    {{ speaker.name }} <em>({{ speaker.affiliation }})</em>{{ sep }}
+    {{ talk.speaker.name }} <em>({{ talk.speaker.affiliation }})</em>{{ sep }}
     {% endfor %}
     </p>
     <div class="rsvp"><a href="{{ event.url }}">Details & RSVP</a></div>
-    {% if event.video_url %}
-    <div class="video"><a href="{{ event.video_url }}" target="_blank">Video</a></div>
-    {% endif %}
 </div>
 {% else %}
 <p>No events announced yet. Watch this space!</p>
