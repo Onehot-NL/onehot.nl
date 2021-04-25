@@ -1,22 +1,27 @@
 {% extends "layout.html" %}
 
 {% block header %}
+<h3 class="date">{{event.date}}</h3>
 <h1>{{ event.title }}</h1>
-<p>{{ event.description }}</p>
+<p>{{ event.blurb }}</p>
 {% endblock %}
 
 {% block main %}
 {% for talk in event.talks %}
-<h2>Talk: {{ talk.title }}</h2>
-<h3>{{ talk.subtitle }}</h3>
+<h2 class="title">{{ talk.title }}</h2>
+<h3 class="subtitle">{{ talk.subtitle }}</h3>
 
 <p>{{ talk.abstract }}</p>
 
-<h3>Speaker: {{ talk.speaker.name }}</h3>
+<div class="biography">
+  <h3 class="name">About {{ talk.speaker.name }}</h3>
 
-<p>{{ talk.speaker.bio }}</p>
+  <p class="bio">{{ talk.speaker.bio }}</p>
 
-<img src="{{ talk.speaker.photo_url }}">
+  <div class="photo"><img src="{{ talk.speaker.photo_url }}"></div>
+
+  <p class="externals"></p>
+</div>
 {% endfor %}
 
 {% endblock %}
