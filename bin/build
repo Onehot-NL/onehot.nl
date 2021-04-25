@@ -3,6 +3,7 @@ import os
 import shutil
 import subprocess
 import sys
+import traceback
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from enum import Enum
@@ -113,7 +114,7 @@ def iter_pages(dirs: Dirs) -> Iterator[Page]:
                 yaml_decode(front_matter_yaml)
             )
         except ValidationError as e:
-            show_validation_error(path.relative_to(dirs.root), e)
+            exit_validation_error(path.relative_to(dirs.root), e)
 
         # noinspection PyUnboundLocalVariable
         yield Page(path=path, front_matter=front_matter, template=template)
@@ -124,12 +125,27 @@ def load_state(dirs: Dirs) -> State:
     try:
         return State.parse_obj(yaml_decode(events_file.read_text()))
     except ValidationError as e:
-        show_validation_error(events_file.relative_to(dirs.root), e)
+        exit_validation_error(events_file.relative_to(dirs.root), e)
 
 
-def show_validation_error(filename: Path, error: ValidationError) -> NoReturn:
+def exit_validation_error(filename: Path, error: ValidationError) -> NoReturn:
     print(f"{filename}: Problems found")
     print(error)
+    sys.exit(1)
+
+
+def exit_jinja_error(e: jinja2.TemplateError) -> NoReturn:
+    """
+    Print a traceback for a Jina error limiting only to the frames
+    within Jinja itself, then exit the program.
+    """
+    traceback_levels = 0
+    tb = e.__traceback__
+    while tb:
+        if "__jinja_exception__" in tb.tb_frame.f_globals:
+            traceback_levels += 1
+        tb = tb.tb_next
+    print(traceback.format_exc(limit=-traceback_levels))
     sys.exit(1)
 
 
@@ -163,15 +179,22 @@ def site() -> None:
         url_index_file = url_dir / "index.html"
 
         url_dir.mkdir(exist_ok=True)
-        rendered = jinja_env.from_string(page.template).render(
-            events=published_events, active_page=url
-        )
+        try:
+            rendered = jinja_env.from_string(page.template).render(
+                events=published_events, active_page=url
+            )
+        except jinja2.TemplateError as e:
+            exit_jinja_error(e)
+
         url_index_file.write_text(rendered)
 
     for event in published_events:
         event_index_file = dirs.build / event.index_file
         event_index_file.parent.mkdir(exist_ok=True, parents=True)
-        rendered = jinja_env.get_template("event.html").render(event=event)
+        try:
+            rendered = jinja_env.get_template("event.html").render(event=event)
+        except jinja2.TemplateError as e:
+            exit_jinja_error(e)
         event_index_file.write_text(rendered)
 
     print("Done.")
