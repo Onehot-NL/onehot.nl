@@ -22,12 +22,13 @@ learn more about our field.</p>
 {% for event in events %}
 <div class="event">
     <h4 class="title">Meetup: {{ event.title }}</h4>
+    <p class="description">{{ event.description }}</p>
     <p class="date"><strong>Date:</strong> {{ event.date }}</p>
     <p class="speakers">
-    <strong>Seakers:</strong>
+    <strong>Speakers:</strong>
     {% for talk in event.talks %}
     {% set sep = ", " if not loop.last else "" %}
-    {{ talk.speaker.name }} <em>({{ talk.speaker.affiliation }})</em>{{ sep }}
+    {{ talk.speaker.name }} ({{ talk.speaker.affiliation }}){{ sep }}
     {% endfor %}
     </p>
     <div class="rsvp"><a href="{{ event.url }}">Details & RSVP</a></div>
