@@ -26,7 +26,7 @@ events:
           interests are in machine learning/deep learning, but I also
           have a solid background in computer science, mainly code
           optimisation.
-        photo_url: img/speakers/basdekan.jpg
+        photo_url: /img/speakers/basdekan.jpg
         external_urls:
           - text: Linkedin
             url: https://www.linkedin.com/in/bas-de-kan-168aa0112/
