@@ -24,8 +24,8 @@ learn more about our field.</p>
     <h4 class="title"><a href="{{ event.url }}">Meetup: {{ event.title }}</a></h4>
     <h4 class="date"> {{ event.date }}</h4>
     <div class="description">
-      <p>{{ event.blurb }}</p>
-      <p class="speakers">
+      <p class="small">{{ event.blurb }}</p>
+      <p class="speakers small">
         <strong>Speakers:</strong><br/>
         {% for talk in event.talks %}
         {% set sep = ", " if not loop.last else "" %}
