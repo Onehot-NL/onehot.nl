@@ -1,7 +1,8 @@
 events:
 - title: A world in transition
   type: meetup
-  description: |
+  description: ""
+  blurb: |
     You have heard enough times about data being the new oil, and
     do not get us started on "the sexiest job of the 21st century". That being
     said, insights from data are already shaping the world. In this very first

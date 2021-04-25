@@ -75,6 +75,7 @@ class EventType(Enum):
 class Event(BaseModel):
     title: str
     type: EventType
+    blurb: str
     description: str
     talks: List[Talk]
     date: str
