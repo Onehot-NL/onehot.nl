@@ -145,7 +145,7 @@ h5, p , span{
     font-size: 1.25rem;
 }
 
-small, p.small {
+small, p.small, .small span {
     font-size: 1rem;
 }
 
