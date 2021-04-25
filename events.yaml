@@ -53,7 +53,7 @@ events:
   date: 2021-05-18
   start_time: 19:00:00 CET
   location:
-    text: Discord
+    text: Online (Discord)
     url: https://discord.gg/5Y8g3EWBZ2
   meetup_url: https://www.meetup.com/onehot-data-science-utrecht/
   published: true
