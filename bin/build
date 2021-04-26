@@ -80,6 +80,7 @@ class Event(BaseModel):
     talks: List[Talk]
     date: str
     start_time: str
+    end_time: str
     location: Link
     meetup_url: str
     published: bool

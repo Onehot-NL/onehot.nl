@@ -1,7 +1,18 @@
 events:
 - title: A world in transition
   type: meetup
-  description: ""
+  description: |
+    You have heard enough times about data being the new oil, and
+    do not get us started on "the sexiest job of the 21st century". That being
+    said, insights from data are already shaping the world. In this very first
+    Onehot meetup we will explore the role data plays in transitioning towards
+    tomorrow. <br/><br/>
+
+    During this meetup we will host two practicioneers active in this domain:
+    one from academics and one from business. Each talk will be presented in
+    thirty minutes, with some time for questions afterwards. Between the talks
+    there will be a brief break, and afterwards we will have room for further
+    discussion and socialising.
   blurb: |
     You have heard enough times about data being the new oil, and
     do not get us started on "the sexiest job of the 21st century". That being
@@ -9,28 +20,28 @@ events:
     Onehot meetup we will explore the role data plays in transitioning towards
     tomorrow.
   talks:
-    - title: ""
-      subtitle: ""
-      speaker:
-        name: Dr Jazmin Zatarain Salazar
-        affiliation: TU Delft
-        bio: ""
-        photo_url: ""
-        external_urls:
-          - text: TU Delft
-            url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
-      abstract: ""
-      keywords: ""
+    # - title: "Lorem ipsum dolor sit amet"
+    #   subtitle: "Consequitur"
+    #   speaker:
+    #     name: Dr Jazmin Zatarain Salazar
+    #     affiliation: TU Delft
+    #     bio: ""
+    #     photo_url: ""
+    #     external_urls:
+    #       - text: TU Delft
+    #         url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
+    #   abstract: ""
+    #   keywords: ""
     - title: Will my neighbour's Tesla consume all my power?
       subtitle: Managing the energy transition at Alliander
       speaker:
         name: Bas de Kan
         affiliation: Alliander / Navara
         bio: |
-          As a data science consultant in the energy field I combine
-          my interest in data science with sustainability. My main
-          interests are in machine learning/deep learning, but I also
-          have a solid background in computer science, mainly code
+          As a data science consultant in the energy field Bas combines
+          his interest in data science with sustainability. His main
+          interests are in machine learning/deep learning, but he also
+          has a solid background in computer science, mainly code
           optimisation.
         photo_url: /img/speakers/basdekan.jpg
         external_urls:
@@ -50,8 +61,10 @@ events:
         smart customer can already mitigate a lot of these challenges
         without laying a single new cable in the ground.
       keywords: Energy transition, Smart grid
+    
   date: 2021-05-18
-  start_time: 19:00:00 CET
+  start_time: 19:30
+  end_time: 21:30
   location:
     text: Online (Discord)
     url: https://discord.gg/5Y8g3EWBZ2

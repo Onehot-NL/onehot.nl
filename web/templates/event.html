@@ -3,24 +3,41 @@
 {% block header %}
 <h3 class="date">{{event.date}}</h3>
 <h1>{{ event.title }}</h1>
-<p>{{ event.blurb }}</p>
+<p>{{ event.description}}</p>
+
+<div class="details">
+  <h4>Details:</h4>
+  <ul>
+    <li>{{ event.date }}</li>
+    <li>From {{ event.start_time}}  until ~{{ event.end_time }} (CET)</li>
+    <li>Location: <a href="{{ event.location.url }}" target="_blank">{{ event.location.text}}</a></li>
+    <li><a href="{{ event.meetup_url }}" target="_blank">Please RSVP on Meetup</a></li>
+  </ul>
+  </div>
 {% endblock %}
+
 
 {% block main %}
 {% for talk in event.talks %}
-<h2 class="title">{{ talk.title }}</h2>
-<h3 class="subtitle">{{ talk.subtitle }}</h3>
+<div class="talk">
+  <h3 class="title">{{ talk.title }}</h3>
+  <h4 class="subtitle">{{ talk.subtitle }}</h4>
 
-<p>{{ talk.abstract }}</p>
+  <p>{{ talk.abstract }}</p>
+  <p class="keywords small">Keywords: {{ talk.keywords }}</p>
 
-<div class="biography">
-  <h3 class="name">About {{ talk.speaker.name }}</h3>
-
-  <p class="bio">{{ talk.speaker.bio }}</p>
-
-  <div class="photo"><img src="{{ talk.speaker.photo_url }}"></div>
-
-  <p class="externals"></p>
+  <div class="biography">
+    <h4 class="name">About {{ talk.speaker.name }}</h4>
+    <div class="photo">
+      <img src="{{ talk.speaker.photo_url }}" alt="Photograph of {{ talk.speaker.name }}">
+    </div>
+    <p class="bio">{{ talk.speaker.bio }}</p>
+    <p class="externals">
+      {% for url in talk.speaker.external_urls %}
+        <a class="url" href="{{ url.url }}" target="_blank">{{ url.text}}</a>
+      {% endfor %}
+    </p>
+  </div>
 </div>
 {% endfor %}
 

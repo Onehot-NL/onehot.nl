@@ -20,28 +20,30 @@ learn more about our field.</p>
 {% block main %}
 <h2>Events</h2>
 {% for event in events %}
-<div class="event">
-    <h4 class="title"><a href="{{ event.url }}">Meetup: {{ event.title }}</a></h4>
-    <h4 class="date"> {{ event.date }}</h4>
-    <div class="description">
-      <p class="small">{{ event.blurb }}</p>
-      <p class="speakers small">
-        <strong>Speakers:</strong><br/>
-        {% for talk in event.talks %}
-        {% set sep = ", " if not loop.last else "" %}
-        {{ talk.speaker.name }} ({{ talk.speaker.affiliation }}){{ sep }}
-        {% endfor %}
-      </p>
-    </div>
-    <div class="details">
-      <span class="start_time">{{ event.start_time }}</span>
-      <span class="location">{{ event.location.text }}</span>
-      <span class="rsvp"><a href="{{ event.url }}">Details & RSVP</a></span>
-    </div>
+<div class="event_list">
+  <div class="event">
+      <h4 class="title"><a href="{{ event.url }}">Meetup: {{ event.title }}</a></h4>
+      <h4 class="date"> {{ event.date }}</h4>
+      <div class="description">
+        <p class="small">{{ event.blurb }}</p>
+        <p class="speakers small">
+          <strong>Speakers:</strong><br/>
+          {% for talk in event.talks %}
+          {% set sep = ", " if not loop.last else "" %}
+          {{ talk.speaker.name }} ({{ talk.speaker.affiliation }}){{ sep }}
+          {% endfor %}
+        </p>
+      </div>
+      <div class="details">
+        <span class="start_time">{{ event.start_time }}</span>
+        <span class="location">{{ event.location.text }}</span>
+        <span class="rsvp"><a href="{{ event.url }}">Details & RSVP</a></span>
+      </div>
+  </div>
+  {% else %}
+  <p>No events announced yet. Watch this space!</p>
+  {% endfor %}
 </div>
-{% else %}
-<p>No events announced yet. Watch this space!</p>
-{% endfor %}
 
 <h2>Elsewhere</h2>
 

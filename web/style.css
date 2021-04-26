@@ -215,43 +215,96 @@ nav ul li.active a {
     border: none;
 }
 
-/* Events */
+/* Events list */
 
-.event {
+.event_list .event {
     display: grid;
     grid-template-areas:
         "title date"
         "description details";
 }
 
-.event .title {
+.event_list .event .title {
     grid-area: title;
 }
 
-.event .description {
+.event_list .event .description {
     grid-area: description;
-    padding-right: 4rem;
 }
 
-.event .details {
+.event_list .event .details {
     grid-area: details;
     margin: 0;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
-.event .details span {
+.event_list .event .details span {
   display: block;
 }
 
 /* Event details page */
 
-.title{
-  margin-bottom: 0.5rem;
+.details {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-.subtitle {
-  margin-top: 0;
+.talk {
+  margin-top: 5rem;
+}
+
+.talk .title {
+    margin-bottom: 0.5rem;
+}
+
+.talk .subtitle {
+    margin-top: 0;
+    font-style: italic;
+}
+
+.talk .keywords {
   font-style: italic;
+}
+
+.talk .biography {
+  background-color: var(--lightgrey-1);
+  padding: 1rem;
+}
+
+.biography .photo {
+    width: 100%;
+}
+
+.biography .photo img {
+    width: inherit;
+}
+
+@media only screen and (min-width: 750px) {
+  .biography {
+      display: grid;
+      grid-template-areas:
+          "photo name"
+          "photo bio"
+          "photo external_urls";
+  }
+
+  .biography .name {
+      grid-area: name;
+  }
+
+  .biography .photo {
+      grid-area: photo;
+      max-width: 250px;
+      margin-right: 2rem;
+  }
+
+  .biography .bio {
+      grid-area: bio;
+  }
+}
+
+.biography .externals .url {
+  margin-right: 1rem;
 }
 
 /* Logo */
