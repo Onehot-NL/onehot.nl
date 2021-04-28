@@ -9,10 +9,10 @@ events:
     tomorrow. <br/><br/>
 
     During this meetup we will host two practicioneers active in this domain:
-    one from academics and one from business. Each talk will be presented in
-    thirty minutes, with some time for questions afterwards. Between the talks
-    there will be a brief break, and afterwards we will have room for further
-    discussion and socialising.
+    one from academics and one from business. Both speakers will give a 30
+    minute presentation, with some time for questions afterwards. Between the
+    talks there will be a brief break, and afterwards we will have room for
+    further discussion and socialising.
   blurb: |
     You have heard enough times about data being the new oil, and
     do not get us started on "the sexiest job of the 21st century". That being
@@ -20,18 +20,6 @@ events:
     Onehot meetup we will explore the role data plays in transitioning towards
     tomorrow.
   talks:
-    # - title: "Lorem ipsum dolor sit amet"
-    #   subtitle: "Consequitur"
-    #   speaker:
-    #     name: Dr Jazmin Zatarain Salazar
-    #     affiliation: TU Delft
-    #     bio: ""
-    #     photo_url: ""
-    #     external_urls:
-    #       - text: TU Delft
-    #         url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
-    #   abstract: ""
-    #   keywords: ""
     - title: Will my neighbour's Tesla consume all my power?
       subtitle: Managing the energy transition at Alliander
       speaker:
@@ -61,7 +49,24 @@ events:
         smart customer can already mitigate a lot of these challenges
         without laying a single new cable in the ground.
       keywords: Energy transition, Smart grid
-    
+    - title: "Talk to be announced"
+      subtitle:
+      speaker:
+        name: Dr Jazmin Zatarain Salazar
+        affiliation: TU Delft
+        bio: |
+          Dr Zatarain Salazar is an assistant professor at the Faculty of
+          Technology Policy and Management at TU Delft. She holds a PhD in Civil
+          and Environmental Engineering with an emphasis in environmental and
+          water resources systems engineering. Her research interests lie in
+          advancing multiobjective decision support for environmental and water
+          systems under climate and socio-economic uncertainty.
+        photo_url: "/img/speakers/jazminzatarainsalazar.jpg"
+        external_urls:
+          - text: TU Delft
+            url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
+      abstract: "We will provide an abstract as soon as possible."
+      keywords: "Public policy analysis, AI in decision support, socio-environmental challenges"
   date: 2021-05-18
   start_time: 19:30
   end_time: 21:30
