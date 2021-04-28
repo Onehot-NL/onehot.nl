@@ -37,8 +37,8 @@
     <div class="photo">
       <img src="{{ talk.speaker.photo_url }}" alt="Photograph of {{ talk.speaker.name }}">
     </div>
-    <p class="bio">{{ talk.speaker.bio }}</p>
-    <p class="externals">
+    <p class="bio small">{{ talk.speaker.bio }}</p>
+    <p class="externals small">
       {% for url in talk.speaker.external_urls %}
         <a class="url" href="{{ url.url }}" target="_blank">{{ url.text}}</a>
       {% endfor %}
