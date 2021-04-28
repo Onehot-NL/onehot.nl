@@ -91,11 +91,13 @@ class Event(BaseModel):
 
     @property
     def url(self) -> str:
-        return f"/events/{self.date}/{self.title_escaped}"
+        return f"/events/{self.date}-{self.title_escaped}"
 
     @property
     def index_file(self) -> Path:
-        return Path("events") / self.date / self.title_escaped / "index.html"
+        return (
+            Path("events") / f"{self.date}-{self.title_escaped}" / "index.html"
+        )
 
 
 class State(BaseModel):
