@@ -7,7 +7,7 @@ import json
 import functools
 import os
 import pathlib
-from typing import Any, Dict, List, Union
+from typing import Any, Dict, List, Union, Optional
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 
@@ -36,6 +36,18 @@ class RequestHandler(SimpleHTTPRequestHandler):
             self.send_header(header, value)
 
         super().end_headers()
+
+    def send_error(
+        self,
+        code: int,
+        message: Optional[str] = None,
+        explain: Optional[str] = None,
+    ) -> None:
+        if code == 404:
+            self.error_message_format = (
+                pathlib.Path(self.directory) / "404.html"  # type: ignore
+            ).read_text()
+        return super().send_error(code, message, explain)
 
 
 def main() -> None:
