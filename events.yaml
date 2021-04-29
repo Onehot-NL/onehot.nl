@@ -49,23 +49,30 @@ events:
         smart customer can already mitigate a lot of these challenges
         without laying a single new cable in the ground.
       keywords: Energy transition, Smart grid
-    - title: "Talk to be announced"
-      subtitle:
+    - title: Balancing water, food and energy demands in fast developing economies
+      subtitle: A participatory AI-based approach
       speaker:
         name: Dr Jazmin Zatarain Salazar
         affiliation: TU Delft
         bio: |
-          Dr Zatarain Salazar is an assistant professor at the Faculty of
-          Technology Policy and Management at TU Delft. She holds a PhD in Civil
-          and Environmental Engineering with an emphasis in environmental and
-          water resources systems engineering. Her research interests lie in
-          advancing multiobjective decision support for environmental and water
-          systems under climate and socio-economic uncertainty.
+          I am the director of the Hippo Delft Artificial Intelligence lab and
+          an Assistant Professor of Policy Analysis at TPM.  My vision is to
+          bridge and develop tools AI-based decision tools to guide sustainable
+          and diligent policy design driven by social well-being and that
+          minimizes existing asymmetries in socio-technical systems.
         photo_url: "/img/speakers/jazminzatarainsalazar.jpg"
         external_urls:
           - text: TU Delft
             url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
-      abstract: "We will provide an abstract as soon as possible."
+      abstract: |
+        Human-centered AI-based decision support offers exciting
+        opportunities to understand complex environmental and water
+        systems that are subject to climate and socio-economic
+        uncertainty. This requires bridging hydrologic and climate
+        sciences, artificial intelligence, visual analytics and
+        participatory policy design to capture the system’s
+        complexity, to discover the tradeoffs across competing goals
+        and support stakeholders to make better management decisions.
       keywords: "Public policy analysis, AI in decision support, socio-environmental challenges"
   date: 2021-05-18
   start_time: 19:30
