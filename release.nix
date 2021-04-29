@@ -13,7 +13,7 @@ stdenv.mkDerivation {
 
   buildPhase = ''
     export PROJECT_ROOT="$(pwd)"
-    python ./bin/build site
+    python ./bin/build
   '';
 
   installPhase = ''
