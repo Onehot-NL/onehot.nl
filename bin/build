@@ -172,6 +172,7 @@ def site() -> None:
             [
                 jinja2.FileSystemLoader(dirs.templates),
                 jinja2.FileSystemLoader(dirs.pages),
+                jinja2.FileSystemLoader(dirs.web),  # For the 404 page.
             ]
         ),
         undefined=jinja2.StrictUndefined,
@@ -210,6 +211,12 @@ def site() -> None:
         except jinja2.TemplateError as e:
             exit_jinja_error(e)
         event_index_file.write_text(rendered)
+
+    try:
+        rendered = jinja_env.get_template("404.html").render()
+        (dirs.build / "404.html").write_text(rendered)
+    except jinja2.TemplateError as e:
+        exit_jinja_error(e)
 
     generate_sitemap(dirs)
 
