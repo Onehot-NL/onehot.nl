@@ -161,7 +161,7 @@ def site() -> None:
     shutil.rmtree(dirs.build, ignore_errors=True)
     dirs.build.mkdir(exist_ok=True, parents=True)
 
-    for static in {"style.css", "logo.svg", "sitemap.xml", "robots.txt"}:
+    for static in {"style.css", "logo.svg", "robots.txt"}:
         shutil.copy(dirs.web / static, dirs.build)
 
     for directory in {"img", "font"}:
@@ -217,7 +217,6 @@ def site() -> None:
 def generate_sitemap(dirs: Dirs) -> None:
     index_files = dirs.build.glob("**/index.html")
 
-    # Build the sitemap
     urlset_node = ET.Element("urlset")
     urlset_node.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
 
