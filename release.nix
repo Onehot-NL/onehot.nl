@@ -20,5 +20,6 @@ stdenv.mkDerivation {
     mkdir -p $out
     cp -r ./ignore/dist $out/public_html
     cp ./config/headers.json $out/headers.json
+    cp ./config/nginx-extra.conf $out/nginx-extra.conf
   '';
 }
