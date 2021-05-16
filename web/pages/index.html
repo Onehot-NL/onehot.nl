@@ -19,8 +19,8 @@ learn more about our field.</p>
 
 {% block main %}
 <h2>Events</h2>
-{% for event in events %}
 <div class="event-list">
+  {% for event in events %}
   <div class="event">
       <h4 class="title"><a href="{{ event.url }}">Meetup: {{ event.title }}</a></h4>
       <h4 class="date">{{ event.date }}</h4>
