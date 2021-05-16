@@ -373,3 +373,15 @@ img.logo {
     max-width: 32px;
     margin-bottom: -10px;
 }
+
+img.full-width {
+    max-width: 100%;
+}
+
+@media only screen and (min-width: 1325px) {
+    img.full-width {
+        max-width: 130%;
+        position: relative;
+        left: -20%;
+    }
+}
