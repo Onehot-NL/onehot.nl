@@ -2,10 +2,10 @@ events:
 - title: The bird's-eye view
   type: meetup
   description: |
-    We have long moved beyond the point where data was only in your computer.
+    We have long moved beyond the point where data existed only in our computers.
     Nowadays we live in a constant feedback loop: we generate data when we move
     through the world, and the way we move through it is influenced by how those
-    data are used. In our second meetup we will take a view from above and
+    data are used. In our second Onehot meetup we will take a view from above and
     explore topics such as urban data science, geographic information systems,
     and spatial analysis. <br/><br/>
 
@@ -15,10 +15,10 @@ events:
     talks there will be a brief break, and afterwards we will have room for
     further discussion and socialising.
   blurb: |
-    We have long moved beyond the point where data was only in your computer.
+    We have long moved beyond the point where data existed only in our computers.
     Nowadays we live in a constant feedback loop: we generate data when we move
     through the world, and the way we move through it is influenced by how those
-    data are used. In our second meetup we will take a view from above and
+    data are used. In our second Onehot meetup we will take a view from above and
     explore topics such as urban data science, geographic information systems,
     and spatial analysis.
   talks:
@@ -49,7 +49,7 @@ events:
   location:
     text: Online (Discord)
     url: https://discord.gg/5Y8g3EWBZ2
-  meetup_url: https://www.meetup.com/onehot/events/277858274/
+  meetup_url: https://www.meetup.com/onehot/events/278214733/
   published: true
 - title: A world in transition
   type: meetup
