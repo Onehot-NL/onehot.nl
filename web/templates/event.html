@@ -15,6 +15,14 @@
   </ul>
   </div>
 
+{% if "discord" in event.location.text.lower() %}
+<p class="small">
+  If you join us on Discord, you need
+  to <a href="/discord-settings">configure your voice settings</a> if
+  you'd like to ask questions during the meetup.
+</p>
+{% endif %}
+
 <p class="small">Please let us know if we can do anything to make the event
   (more) accessible to you. We will try our best to accomodate any needs you may
   have. You can reach us through <a href="mailto:organisation@onehot.nl">
