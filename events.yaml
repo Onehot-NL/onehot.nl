@@ -1,4 +1,56 @@
 events:
+- title: The bird's-eye view
+  type: meetup
+  description: |
+    We have long moved beyond the point where data was only in your computer.
+    Nowadays we live in a constant feedback loop: we generate data when we move
+    through the world, and the way we move through it is influenced by how those
+    data are used. In our second meetup we will take a view from above and
+    explore topics such as urban data science, geographic information systems,
+    and spatial analysis. <br/><br/>
+
+    During this meetup we will host two practicioneers active in this domain:
+    one from academics and one from business. Both speakers will give a 30
+    minute presentation, with some time for questions afterwards. Between the
+    talks there will be a brief break, and afterwards we will have room for
+    further discussion and socialising.
+  blurb: |
+    We have long moved beyond the point where data was only in your computer.
+    Nowadays we live in a constant feedback loop: we generate data when we move
+    through the world, and the way we move through it is influenced by how those
+    data are used. In our second meetup we will take a view from above and
+    explore topics such as urban data science, geographic information systems,
+    and spatial analysis.
+  talks:
+    - title: Talk title to be announced
+      subtitle:
+      speaker:
+        name: Dr Ir Trivik Verma
+        affiliation: TU Delft
+        bio: |
+          I am an Assistant Professor at the section of Policy Analysis in the
+          department of Multi-Actor Systems. Currently, I'm serving as the
+          director of the TPM AI lab and head the Centre for Urban Science and
+          Policy. My research aims at modelling the dynamics of urban
+          infrastructure systems and their interaction with humans in an effort
+          to inform policy on sustainable development and planning of cities. I
+          am particularly interested in the design and modelling of resilient,
+          sustainable and public-oriented infrastructure systems.
+        photo_url: "/img/speakers/trivikverma.jpg"
+        external_urls:
+          - text: TU Delft
+            url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/drir-t-trivik-verma
+      abstract: |
+        The talk abstract will be published soon.
+      keywords: "Urban data science, city planning, infrastructure systems"
+  date: 2021-06-29
+  start_time: 19:30
+  end_time: 21:30
+  location:
+    text: Online (Discord)
+    url: https://discord.gg/5Y8g3EWBZ2
+  meetup_url: https://www.meetup.com/onehot/events/277858274/
+  published: true
 - title: A world in transition
   type: meetup
   description: |
