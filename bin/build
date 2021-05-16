@@ -86,7 +86,7 @@ class Event(BaseModel):
 
     @property
     def title_escaped(self) -> str:
-        return self.title.lower().replace(" ", "-")
+        return self.title.lower().replace(" ", "-").replace("'", "")
 
     @property
     def url(self) -> str:
