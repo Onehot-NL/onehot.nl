@@ -22,27 +22,45 @@ events:
     explore topics such as urban data science, geographic information systems,
     and spatial analysis.
   talks:
-    - title: Talk title to be announced
-      subtitle:
+    - title: Cities need Smart Planners, not Smart Tech
+      subtitle: Inequalities in Access to Urban Infrastructure
       speaker:
         name: Dr Ir Trivik Verma
         affiliation: TU Delft
         bio: |
-          I am an Assistant Professor at the section of Policy Analysis in the
-          department of Multi-Actor Systems. Currently, I'm serving as the
-          director of the TPM AI lab and head the Centre for Urban Science and
-          Policy. My research aims at modelling the dynamics of urban
-          infrastructure systems and their interaction with humans in an effort
-          to inform policy on sustainable development and planning of cities. I
-          am particularly interested in the design and modelling of resilient,
-          sustainable and public-oriented infrastructure systems.
+          Trivik Verma is Assistant Professor at TPM and director of the Centre
+          for Urban Science and Policy (CUSP) and the TPM AI Lab. His research
+          focuses on urbanization, inequalities, and citizen participation from
+          a computational perspective. Trivik also leads remote expeditions for
+          National Geographic where high school students can learn about
+          conservation, anthropology, engineering and policy
         photo_url: "/img/speakers/trivikverma.jpg"
         external_urls:
-          - text: TU Delft
-            url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/drir-t-trivik-verma
+          - text: CUSP
+            url: https://research.trivikverma.com/
+          - text: TPM AI Lab
+            url: https://www.tudelft.nl/tbm/tpm-ai-lab/
+          - text: Research
+            url: https://research.trivikverma.com/author/trivik-verma/
+          - text: Twitter
+            url: https://twitter.com/TrivikV
+          - text: LinkedIn
+            url: https://www.linkedin.com/in/trivikverma/
       abstract: |
-        The talk abstract will be published soon.
-      keywords: "Urban data science, city planning, infrastructure systems"
+        The appeal of using technology as an answer to all our growing urban
+        problems has nudged planners to make cities “smarter”, “resilient”, and
+        “sustainable” for a better, more liveable future. But who are we
+        improving cities for? Who gets to be served and who is left behind?
+        Although, policies promoting intelligent services (e.g. mobility,
+        health and energy) provide opportunities for many, they naturally
+        galvanise socioeconomic inequalities among the citizenry. In this talk,
+        we will explore the condition of our cities and evaluate who receives
+        the benefits of transformations. Building more inclusive cities will
+        require us to challenge our perspectives on technology. Trivik will
+        discuss how the members of the Centre for Urban Science & Policy (CUSP)
+        use spatial data science to tackle problems of urbanization in a way
+        that is equitable.
+      keywords: "Access, Infrastructure, Cities, Urban Planning, Policy"
   date: 2021-06-29
   start_time: 19:30
   end_time: 21:30
