@@ -61,6 +61,32 @@ events:
         use spatial data science to tackle problems of urbanization in a way
         that is equitable.
       keywords: "Access, Infrastructure, Cities, Urban Planning, Policy"
+    - title: Data on Track
+      subtitle: ""
+      speaker:
+        name: Kelvin de Ruiter
+        affiliation: TU Delft
+        bio: |
+          Kelvin de Ruiter is a specialist in the field of low-code application
+          development – specifically using the Mendix platform – at First
+          Technology. He carried out multiple projects with clients in the
+          transportation and infrastructure sectors. These projects aimed to
+          improve business processes by developing customized IT applications
+          for desktop and mobile use.
+        photo_url: "/img/speakers/kelvinderuiter.jpg"
+        external_urls: []
+      abstract: |
+        Dutch Railways is the principal passenger railway operator in the
+        Netherlands. They run around 5,000 scheduled trains and serve over 1.3
+        million passengers a day. These numbers, combined with the high
+        interconnectivity of the rail network, make timetable disturbances—such
+        as failing trains or broken overhead lines—a tremendous challenge. The
+        Customer Support team strives to reduce the impact for passengers in case
+        of such disturbances and helps them to reach their destination as easily
+        as possible. In this presentation we discuss the development of a new IT
+        application for the Customer Support team, and how visualization of data
+        plays a key role in making the application intuitive and user-friendly 
+      keywords: "Data visualization, user experience"
   date: 2021-06-29
   start_time: 19:30
   end_time: 21:30
