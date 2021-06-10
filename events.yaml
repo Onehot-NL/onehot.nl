@@ -74,7 +74,9 @@ events:
           improve business processes by developing customized IT applications
           for desktop and mobile use.
         photo_url: "/img/speakers/kelvinderuiter.jpg"
-        external_urls: []
+        external_urls:
+          - text: LinkedIn
+            url: https://www.linkedin.com/in/kelvin-de-ruiter-aa840971/
       abstract: |
         Dutch Railways is the principal passenger railway operator in the
         Netherlands. They run around 5,000 scheduled trains and serve over 1.3
