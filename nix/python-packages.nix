@@ -8,6 +8,7 @@ in
     ps.flake8
     ps.isort
     ps.jinja2
+    ps.markdown
     ps.mypy
     ps.pydantic
     ps.ruamel_yaml
