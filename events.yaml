@@ -1,4 +1,52 @@
 events:
+- title: Tooling (Working title)
+  type: meetup
+  description: ""
+  blurb: ""
+  talks:
+    - title: Continuous Machine Learning
+      subtitle: ""
+      speaker:
+        name: Paweł Redzyński
+        affiliation: Iterative
+        bio: |
+          Software engineer at Iterative.ai, and one of the core maintainers of
+          DVC. I am interested in machine learning from the perspective of
+          project maintenance. In my free time I like to train with
+          kettlebells, hike and learn new things.
+        photo_url: "/img/speakers/pawelredzynski.jpg"
+        external_urls:
+          - text: Iterative.ai
+            url: https://iterative.ai/
+          - text: DVC
+            url: https://dvc.org/
+          - text: GitHub
+            url: https://github.com/pared
+          - text: LinkedIn
+            url: https://www.linkedin.com/in/pawe%C5%82-redzy%C5%84ski-913485108/
+      abstract: |
+        In the software eineering world, CI/CD practices have proven to be a
+        reliable and effective approach to automating recurring tasks, like
+        running tests, code analysis checks and even delivering final products to
+        production.
+
+        In this talk, we will present how to automate ML processes using GitHub
+        Actions or GitLab CI/CD and Continuous Machine Learning (CML) library that
+        will take care of:
+
+          - transferring large datasets to CI runners
+          - managing GPU/CPU resources for computations and
+          - generating ML model report with metrics and plots right in GitHub
+            Pull Request so that ML specialists can focus on research.
+      keywords: "CML, continuous integration, continuous delivery, machine learning, GitHub actions"
+  date: 2021-08-10
+  start_time: 19:30
+  end_time: 21:30
+  location:
+    text: Online (Google Meet)
+    url: TODO
+  meetup_url: TODO
+  published: true
 - title: The bird's-eye view
   type: meetup
   description: |
@@ -87,7 +135,7 @@ events:
         of such disturbances and helps them to reach their destination as easily
         as possible. In this presentation we discuss the development of a new IT
         application for the Customer Support team, and how visualization of data
-        plays a key role in making the application intuitive and user-friendly 
+        plays a key role in making the application intuitive and user-friendly
       keywords: "Data visualization, user experience"
   date: 2021-06-29
   start_time: 19:30
