@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
-from typing import Any, Iterator, List, NoReturn
+from typing import Any, Iterator, List, NoReturn, Optional
 
 import jinja2
 import markdown
@@ -92,7 +92,7 @@ class Event(BaseModel):
     end_time: str
     location: Link
     meetup_url: str
-    linkedin_url: str
+    linkedin_url: Optional[str]
     published: bool
 
     @property
