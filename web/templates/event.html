@@ -3,7 +3,7 @@
 {% block header %}
 <h3 class="date">{{event.date}}</h3>
 <h1>{{ event.title }}</h1>
-<p>{{ event.description}}</p>
+{{ event.description_rendered }}
 
 <div class="details">
   <h4>Details:</h4>
