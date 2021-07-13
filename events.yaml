@@ -63,6 +63,7 @@ events:
     text: Online (Google Meet)
     url: https://meet.google.com/ren-exxt-twn
   meetup_url: TODO
+  linkedin_url: TODO
   published: true
 - title: The bird's-eye view
   type: meetup
@@ -161,6 +162,7 @@ events:
     text: Online (Google Meet)
     url: https://meet.google.com/drs-thfm-rms
   meetup_url: https://www.meetup.com/onehot/events/278214733/
+  linkedin_url: https://www.linkedin.com/events/meetup-thebird-s-eyeview6804348608327110656/
   published: true
 - title: A world in transition
   type: meetup
@@ -244,4 +246,5 @@ events:
     text: Online (Discord)
     url: https://discord.gg/5Y8g3EWBZ2
   meetup_url: https://www.meetup.com/onehot/events/277858274/
+  linkedin_url: NA
   published: true

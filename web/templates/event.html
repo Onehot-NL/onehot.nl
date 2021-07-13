@@ -11,7 +11,7 @@
     <li>{{ event.date }}</li>
     <li>From {{ event.start_time}}  until ~{{ event.end_time }} (CET)</li>
     <li>Location: <a href="{{ event.location.url }}" target="_blank">{{ event.location.text}}</a></li>
-    <li><a href="{{ event.meetup_url }}" target="_blank">Please RSVP on Meetup</a></li>
+    <li>Please RSVP on <a href="{{ event.meetup_url }}" target="_blank">Meetup</a> or on <a href="{{ event.linkedin_url }}" target="_blank">Linkedin</a></li>
   </ul>
   </div>
 

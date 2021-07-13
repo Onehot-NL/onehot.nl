@@ -92,6 +92,7 @@ class Event(BaseModel):
     end_time: str
     location: Link
     meetup_url: str
+    linkedin_url: str
     published: bool
 
     @property
