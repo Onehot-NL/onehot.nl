@@ -396,9 +396,14 @@ img.logo {
     border-bottom: 2px dotted;
 }
 
-.icon-link .icon {
+.icon-link #meetup {
     max-width: 32px;
     margin-bottom: -10px;
+}
+
+.icon-link #linkedin {
+    max-width: 25px;
+    margin-bottom: -5px;
 }
 
 img.full-width {
