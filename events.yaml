@@ -15,11 +15,6 @@ events:
     speakers will give a 30 minute presentation, with some time for questions
     afterwards. Between the talks there will be a brief break, and afterwards we
     will have room for further discussion and socialising.
-  blurb: |
-    A carpenter has a workshop, a cook has a kitchen, and a data scientist has a
-    computer. Regardless of profession and environment, however, you still need
-    the right tools for your practice. In this meetup we will explore some of
-    the tools that make data science possible.
   talks:
     - title: Continuous Machine Learning
       subtitle: ""
@@ -80,13 +75,6 @@ events:
     minute presentation, with some time for questions afterwards. Between the
     talks there will be a brief break, and afterwards we will have room for
     further discussion and socialising.
-  blurb: |
-    We have long moved beyond the point where data existed only in our computers.
-    Nowadays we live in a constant feedback loop: we generate data when we move
-    through the world, and the way we move through it is influenced by how those
-    data are used. In our second Onehot meetup we will take a view from above and
-    explore topics such as urban data science, geographic information systems,
-    and spatial analysis.
   talks:
     - title: Cities need Smart Planners, not Smart Tech
       subtitle: Inequalities in Access to Urban Infrastructure
@@ -178,12 +166,6 @@ events:
     minute presentation, with some time for questions afterwards. Between the
     talks there will be a brief break, and afterwards we will have room for
     further discussion and socialising.
-  blurb: |
-    You have heard enough times about data being the new oil, and
-    do not get us started on "the sexiest job of the 21st century". That being
-    said, insights from data are already shaping the world. In this very first
-    Onehot meetup we will explore the role data plays in transitioning towards
-    tomorrow.
   talks:
     - title: Will my neighbour's Tesla consume all my power?
       subtitle: Managing the energy transition at Alliander

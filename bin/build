@@ -70,8 +70,7 @@ class Talk(BaseModel):
 
     @property
     def abstract_rendered(self) -> markupsafe.Markup:
-        rendered = markdown.markdown(self.abstract)
-        return markupsafe.Markup(rendered)
+        return render_markdown(self.abstract)
 
 
 class EventType(Enum):
@@ -81,7 +80,6 @@ class EventType(Enum):
 class Event(BaseModel):
     title: str
     type: EventType
-    blurb: str
     description: str
     talks: List[Talk]
     date: str
@@ -108,8 +106,15 @@ class Event(BaseModel):
 
     @property
     def description_rendered(self) -> markupsafe.Markup:
-        rendered = markdown.markdown(self.description)
-        return markupsafe.Markup(rendered)
+        return render_markdown(self.description)
+
+    @property
+    def blurb(self) -> str:
+        return self.description.split("\n\n")[0]
+
+    @property
+    def blurb_rendered(self) -> str:
+        return render_markdown(self.blurb)
 
 
 class State(BaseModel):
@@ -118,6 +123,11 @@ class State(BaseModel):
 
 def yaml_decode(val: str) -> Any:
     return YAML(typ="base").load(val)
+
+
+def render_markdown(text: str) -> markupsafe.Markup:
+    rendered = markdown.markdown(text)
+    return markupsafe.Markup(rendered)
 
 
 def iter_pages(dirs: Dirs) -> Iterator[Page]:
