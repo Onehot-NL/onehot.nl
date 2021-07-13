@@ -226,6 +226,17 @@ nav ul li.active a {
     grid-template-columns: 70% 25%;
 }
 
+@media only screen and (max-width: 750px) {
+    .event-list .event {
+        display: block;
+    }
+
+    .event-list .details {
+      background-color: var(--lightgrey-1);
+      padding: 1rem;
+    }
+}
+
 .event-list .event .title {
     grid-area: title;
 }
