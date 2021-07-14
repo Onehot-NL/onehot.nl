@@ -1,5 +1,5 @@
 events:
-- title: A working title for working tools
+- title: The workflow show
   type: meetup
   description: |
     A carpenter has a workshop, a cook has a kitchen, and a data scientist has a
@@ -20,7 +20,7 @@ events:
       subtitle: ""
       speaker:
         name: Paweł Redzyński
-        affiliation: Iterative
+        affiliation: Iterative.ai
         bio: |
           Software engineer at Iterative.ai, and one of the core maintainers of
           DVC. I am interested in machine learning from the perspective of
