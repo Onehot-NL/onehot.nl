@@ -46,7 +46,7 @@
     <div class="photo">
       <img src="{{ talk.speaker.photo_url }}" alt="Photograph of {{ talk.speaker.name }}">
     </div>
-    <p class="bio small">{{ talk.speaker.bio }}</p>
+    <div class="small">{{ talk.speaker.bio }}</div>
     <p class="externals small">
       {% for url in talk.speaker.external_urls %}
         <a class="url" href="{{ url.url }}" target="_blank">{{ url.text}}</a>

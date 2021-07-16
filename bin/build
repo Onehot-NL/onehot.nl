@@ -62,6 +62,10 @@ class Speaker(BaseModel):
     photo_url: str
     external_urls: List[Link]
 
+    @property
+    def bio_rendered(self) -> markupsafe.Markup:
+        return render_markdown(self.bio)
+
 
 class Talk(BaseModel):
     title: str
