@@ -206,6 +206,31 @@ events:
     talks there will be a brief break, and afterwards we will have room for
     further discussion and socialising.
   talks:
+    - title: Balancing water, food and energy demands in fast developing economies
+      subtitle: A participatory AI-based approach
+      speaker:
+        name: Dr Jazmin Zatarain Salazar
+        affiliation: TU Delft
+        bio: |
+          I am the director of the Hippo Delft Artificial Intelligence lab and
+          an Assistant Professor of Policy Analysis at TPM.  My vision is to
+          bridge and develop tools AI-based decision tools to guide sustainable
+          and diligent policy design driven by social well-being and that
+          minimizes existing asymmetries in socio-technical systems.
+        photo_url: "/img/speakers/jazminzatarainsalazar.jpg"
+        external_urls:
+          - text: TU Delft
+            url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
+      abstract: |
+        Human-centered AI-based decision support offers exciting
+        opportunities to understand complex environmental and water
+        systems that are subject to climate and socio-economic
+        uncertainty. This requires bridging hydrologic and climate
+        sciences, artificial intelligence, visual analytics and
+        participatory policy design to capture the system’s
+        complexity, to discover the tradeoffs across competing goals
+        and support stakeholders to make better management decisions.
+      keywords: "Public policy analysis, AI in decision support, socio-environmental challenges"
     - title: Will my neighbour's Tesla consume all my power?
       subtitle: Managing the energy transition at Alliander
       speaker:
@@ -235,31 +260,6 @@ events:
         smart customer can already mitigate a lot of these challenges
         without laying a single new cable in the ground.
       keywords: Energy transition, Smart grid
-    - title: Balancing water, food and energy demands in fast developing economies
-      subtitle: A participatory AI-based approach
-      speaker:
-        name: Dr Jazmin Zatarain Salazar
-        affiliation: TU Delft
-        bio: |
-          I am the director of the Hippo Delft Artificial Intelligence lab and
-          an Assistant Professor of Policy Analysis at TPM.  My vision is to
-          bridge and develop tools AI-based decision tools to guide sustainable
-          and diligent policy design driven by social well-being and that
-          minimizes existing asymmetries in socio-technical systems.
-        photo_url: "/img/speakers/jazminzatarainsalazar.jpg"
-        external_urls:
-          - text: TU Delft
-            url: https://www.tudelft.nl/en/tpm/about-the-faculty/departments/multi-actor-systems/people/assistant-professors/dr-j-jazmin-zatarain-salazar
-      abstract: |
-        Human-centered AI-based decision support offers exciting
-        opportunities to understand complex environmental and water
-        systems that are subject to climate and socio-economic
-        uncertainty. This requires bridging hydrologic and climate
-        sciences, artificial intelligence, visual analytics and
-        participatory policy design to capture the system’s
-        complexity, to discover the tradeoffs across competing goals
-        and support stakeholders to make better management decisions.
-      keywords: "Public policy analysis, AI in decision support, socio-environmental challenges"
   date: 2021-05-18
   start_time: 19:30
   end_time: 21:30
