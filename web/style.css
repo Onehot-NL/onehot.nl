@@ -428,13 +428,18 @@ img.logo {
 }
 
 .icon-link #meetup {
-    max-width: 32px;
+    max-height: 32px;
     margin-bottom: -10px;
 }
 
 .icon-link #linkedin {
-    max-width: 25px;
-    margin-bottom: -5px;
+    max-height: 22px;
+    margin-bottom: -4px;
+}
+
+.icon-link #youtube {
+    max-height: 25px;
+    margin-bottom: -6px;
 }
 
 img.full-width {
