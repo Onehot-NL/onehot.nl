@@ -39,7 +39,7 @@
   <h4 class="subtitle">{{ talk.subtitle }}</h4>
 
   {{ talk.abstract_rendered }}
-  <p class="keywords small">Keywords: {{ talk.keywords }}</p>
+  {% if talk.keywords %}<p class="keywords small">Keywords: {{ talk.keywords }}</p>{% endif %}
 
   <div class="biography">
     <h4 class="name">About {{ talk.speaker.name }}</h4>
