@@ -5,6 +5,7 @@ import sys
 import traceback
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any, Iterator, List, NoReturn, Optional
@@ -15,8 +16,6 @@ import markupsafe
 import typer
 from pydantic import BaseModel, ValidationError
 from ruamel.yaml import YAML  # type: ignore
-
-from datetime import datetime
 
 cli = typer.Typer(add_completion=False)
 
@@ -95,7 +94,6 @@ class Event(BaseModel):
     meetup_url: str
     linkedin_url: Optional[str]
     published: bool
-    status: str
 
     @property
     def title_escaped(self) -> str:
