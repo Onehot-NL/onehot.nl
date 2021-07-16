@@ -51,6 +51,45 @@ events:
           - generating ML model report with metrics and plots right in GitHub
             Pull Request so that ML specialists can focus on research.
       keywords: "CML, continuous integration, continuous delivery, machine learning, GitHub actions"
+    - title: A talk by Jessica Forde
+      subtitle: "The title and details will be announced soon"
+      speaker:
+        name: Jessica Forde
+        affiliation: Brown University
+        bio: |
+          I’m a machine learning researcher focusing on the empirical study of
+          deep learning models to improve their reliability in high stakes domains
+          such as healthcare. At Brown University, I work with my PhD advisor,
+          <a href="http://cs.brown.edu/~mlittman/">Michael Littman</a>, studying the
+          inductive bias of overparameterized models. For the past two summers,
+           I collaborated with <a href="https://mickypaganini.github.io/">Michela Paganini</a>
+           at <a href="https://ai.facebook.com/ ">Facebook AI Research</a> on model pruning.
+           Prior to starting my PhD, I was an active core maintainer at
+           <a href="https://jupyter.org/">Project Jupyter</a>, which maintains open source
+           projects such as the <a href="https://github.com/jupyter/notebook">Jupyter Notebook</a>.
+           I also worked as a Data Scientist, collaborating with colleagues at
+           organizations such as McKinsey and DARPA.<br/><br/>
+
+
+           I believe that the open science movement is important for improving
+           transparency and accountability in machine learning. At
+           <a href="https://jupyter.org/">Project Jupyter</a> I co-maintained reproducibility
+           tools such as <a href="https://mybinder.org/">binder</a> and
+           <a href="https://repo2docker.readthedocs.io/en/latest/">repo2docker</a>. I also
+           am a co-organizer of the <a href="https://reproducibility-challenge.github.io/neurips2019/">Machine Learning Reproducibility Challenge</a>
+           and <a href="https://ml-retrospectives.github.io/">Machine Learning Retrospectives</a>.
+        photo_url: "/img/speakers/jessicaforde.jpeg"
+        external_urls:
+          - text: GitHub
+            url: https://jzf2101.github.io/
+          - text: Google Scholar
+            url: https://scholar.google.com/citations?user=1k12VDMAAAAJ&hl=en
+          - text: LinkedIn
+            url: https://www.linkedin.com/in/jessica-forde-4aa30615/
+          - text: Twitter
+            url: https://twitter.com/in4dmatics
+      abstract: ""
+      keywords: ""
   date: 2021-08-10
   start_time: 19:30
   end_time: 21:30
