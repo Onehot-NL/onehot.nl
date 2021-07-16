@@ -16,6 +16,8 @@ import typer
 from pydantic import BaseModel, ValidationError
 from ruamel.yaml import YAML  # type: ignore
 
+from datetime import datetime
+
 cli = typer.Typer(add_completion=False)
 
 
@@ -89,6 +91,7 @@ class Event(BaseModel):
     meetup_url: str
     linkedin_url: Optional[str]
     published: bool
+    status: str
 
     @property
     def title_escaped(self) -> str:
@@ -115,6 +118,13 @@ class Event(BaseModel):
     @property
     def blurb_rendered(self) -> str:
         return render_markdown(self.blurb)
+
+    @property
+    def status(self) -> str:
+        if datetime.strptime(self.date, "%Y-%m-%d") < datetime.today():
+            return "past"
+        else:
+            return "upcoming"
 
 
 class State(BaseModel):
