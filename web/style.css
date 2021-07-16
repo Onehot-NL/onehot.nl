@@ -105,7 +105,7 @@ html {
 
 body {
     background: var(--offwhite);
-    color: var(--darkbrown);
+    color: var(--darkgrey);
     font-weight: 400;
     line-height: 1.75;
     padding: 1rem;
@@ -239,7 +239,26 @@ nav ul li.active a {
 
 .event-list .event .title {
     grid-area: title;
+    display: inline;
 }
+
+.event-list .event .status {
+    width: 50%;
+    height: 1.8rem;
+    margin: 1rem 0 1rem 0;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    text-align: center;
+    font-size: 80%;
+}
+
+.event-list .event .status.upcoming {
+  background-color: var(--green-1);
+}
+
+.event-list .event .status.past {
+  background-color: var(--yellow-1);
+}
+
 
 .event-list .event .description {
     grid-area: description;
