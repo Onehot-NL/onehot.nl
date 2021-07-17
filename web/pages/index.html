@@ -37,7 +37,7 @@ url: "/"
           <span class="start_time">{{ event.start_time }}</span>
           <span class="location">{{ event.location.text }}</span>
           <span class="rsvp"><a href="{{ event.url }}">Details & RSVP</a></span>
-          <span class="status {{ event.status }}">{{ event.status }}</span>
+          <span class="status {{ event.status }}">{{ event.status.capitalize() }}</span>
         </div>
     </div>
     {% else %}
