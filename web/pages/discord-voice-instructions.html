@@ -3,30 +3,31 @@ url: "/discord-settings"
 ===
 {% extends "layout.html" %}
 
-{% block header %}
-<h1>Discord Voice Settings</h1>
-<p>Awesome that you'd like to join one of our events! To keep
-background noise during talks to a minimum while still enabling
-you to ask questions / interact with the speakers, we enabled
-Discord's "push to talk" feature in our Meetup room.</p>
+{% block main %}
+<div class="container">
+  <h1>Discord Voice Settings</h1>
+  <p>Awesome that you'd like to join one of our events! To keep
+  background noise during talks to a minimum while still enabling
+  you to ask questions / interact with the speakers, we enabled
+  Discord's "push to talk" feature in our Meetup room.</p>
 
-<p>This page contains instructions on how you can configure Discord's
-push to talk so you're able to participate in the Meetup room!</p>
+  <p>This page contains instructions on how you can configure Discord's
+  push to talk so you're able to participate in the Meetup room!</p>
 
-<ol>
-  <li>Go to your user settings using the gear icon.</li>
-  <li>Go to the "Voice &amp; Video" tab.</li>
-  <li>Select "Push to talk".</li>
-  <li>Select a shortcut to enable push to talk.</li>
-</ol>
+  <ol>
+    <li>Go to your user settings using the gear icon.</li>
+    <li>Go to the "Voice &amp; Video" tab.</li>
+    <li>Select "Push to talk".</li>
+    <li>Select a shortcut to enable push to talk.</li>
+  </ol>
 
-<p>Here is a screenshot that shows you how to set this up:</p>
+  <p>Here is a screenshot that shows you how to set this up:</p>
 
-<img class="full-width" src="/img/discord/voice-settings.png" alt="How to set up push to talk in Discord">
+  <img class="full-width" src="/img/discord/voice-settings.png" alt="How to set up push to talk in Discord">
 
-<p>If you'd like to stick around for discussion after the main
-event and speak without push to talk, you can set your input
-mode back to "Voice activity". You'll be able to participate in
-the Lounge rooms and speak freely like this.</p>
-
+  <p>If you'd like to stick around for discussion after the main
+  event and speak without push to talk, you can set your input
+  mode back to "Voice activity". You'll be able to participate in
+  the Lounge rooms and speak freely like this.</p>
+</div>
 {% endblock %}

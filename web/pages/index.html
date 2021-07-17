@@ -3,68 +3,68 @@ url: "/"
 ===
 {% extends "layout.html" %}
 
-{% block header %}
-<h1>Bringing together people in data</h1>
-<p>We are a community of people who enjoy working with
-data. We want to bring people from our field together in order to
-share our experiences and learn from one another. Whether you are a
-data scientist, analyst, engineer, or enthusiast; please feel welcome
-to join us!</p>
-
-<p>Right now we are in the process of organising a series
-of meetups around data-related topics. One day we hope to organise
-conferences as well! Join our events to meet like-minded folks and
-learn more about our field.</p>
-{% endblock %}
-
 {% block main %}
-<h2>Events</h2>
-<div class="event-list">
-  {% for event in events %}
-  <div class="event">
-      <h4 class="title"><a href="{{ event.url }}">Meetup: {{ event.title }}</a></h4>
-      <h4 class="date">{{ event.date }}</h4>
-      <div class="description">
-        <p class="small">{{ event.blurb }}</p>
-        <p class="speakers small">
-          <strong>Speakers:</strong><br/>
-          {% for talk in event.talks %}
-          {% set sep = ", " if not loop.last else "" %}
-          {{ talk.speaker.name }} ({{ talk.speaker.affiliation }}){{ sep }}
-          {% endfor %}
-        </p>
-      </div>
-      <div class="details">
-        <span class="start_time">{{ event.start_time }}</span>
-        <span class="location">{{ event.location.text }}</span>
-        <span class="rsvp"><a href="{{ event.url }}">Details & RSVP</a></span>
-        <span class="status {{ event.status }}">{{ event.status }}</span>
-      </div>
+<div class="container">
+  <h1>Bringing together people in data</h1>
+  <p>We are a community of people who enjoy working with
+  data. We want to bring people from our field together in order to
+  share our experiences and learn from one another. Whether you are a
+  data scientist, analyst, engineer, or enthusiast; please feel welcome
+  to join us!</p>
+
+  <p>Right now we are in the process of organising a series
+  of meetups around data-related topics. One day we hope to organise
+  conferences as well! Join our events to meet like-minded folks and
+  learn more about our field.</p>
+
+  <h2>Events</h2>
+  <div class="event-list">
+    {% for event in events %}
+    <div class="event">
+        <h4 class="title"><a href="{{ event.url }}">Meetup: {{ event.title }}</a></h4>
+        <h4 class="date">{{ event.date }}</h4>
+        <div class="description">
+          <p class="small">{{ event.blurb }}</p>
+          <p class="speakers small">
+            <strong>Speakers:</strong><br/>
+            {% for talk in event.talks %}
+            {% set sep = ", " if not loop.last else "" %}
+            {{ talk.speaker.name }} ({{ talk.speaker.affiliation }}){{ sep }}
+            {% endfor %}
+          </p>
+        </div>
+        <div class="details">
+          <span class="start_time">{{ event.start_time }}</span>
+          <span class="location">{{ event.location.text }}</span>
+          <span class="rsvp"><a href="{{ event.url }}">Details & RSVP</a></span>
+          <span class="status {{ event.status }}">{{ event.status }}</span>
+        </div>
+    </div>
+    {% else %}
+    <p>No events announced yet. Watch this space!</p>
+    {% endfor %}
   </div>
-  {% else %}
-  <p>No events announced yet. Watch this space!</p>
-  {% endfor %}
+
+  <h2>Elsewhere</h2>
+
+  <p>
+    Join us on
+    <a class="icon-link" href="https://www.meetup.com/onehot/" target="_blank">
+      <img class="icon" id="meetup" src="/img/icons/meetup.svg">
+      <span class="text">Meetup</span>
+    </a>
+    and on
+    <a class="icon-link" href="https://www.linkedin.com/company/onehot/" target="_blank">
+      <img class="icon" id="linkedin" src="/img/icons/linkedin.svg">
+      <span class="text">Linkedin</span>
+    </a>!
+  </p>
+  <p>
+    View recordings from previous talks on
+    <a class="icon-link" href="https://www.youtube.com/channel/UC2wnyfjeow1Vvh7bcYBdRQg" target="_blank">
+      <img class="icon" id="youtube" src="/img/icons/youtube.svg">
+      <span class="text">Youtube</span>
+    </a>!
+  </p>
 </div>
-
-<h2>Elsewhere</h2>
-
-<p>
-  Join us on
-  <a class="icon-link" href="https://www.meetup.com/onehot/" target="_blank">
-    <img class="icon" id="meetup" src="/img/icons/meetup.svg">
-    <span class="text">Meetup</span>
-  </a>
-  and on
-  <a class="icon-link" href="https://www.linkedin.com/company/onehot/" target="_blank">
-    <img class="icon" id="linkedin" src="/img/icons/linkedin.svg">
-    <span class="text">Linkedin</span>
-  </a>!
-</p>
-<p>
-  View recordings from previous talks on
-  <a class="icon-link" href="https://www.youtube.com/channel/UC2wnyfjeow1Vvh7bcYBdRQg" target="_blank">
-    <img class="icon" id="youtube" src="/img/icons/youtube.svg">
-    <span class="text">Youtube</span>
-  </a>!
-</p>
 {% endblock %}

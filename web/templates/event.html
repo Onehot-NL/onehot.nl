@@ -1,59 +1,57 @@
 {% extends "layout.html" %}
 
-{% block header %}
-<h3 class="date">{{event.date}}</h3>
-<h1>{{ event.title }}</h1>
-{{ event.description_rendered }}
-
-<div class="details">
-  <h4>Details:</h4>
-  <ul>
-    <li>{{ event.date }}</li>
-    <li>From {{ event.start_time}}  until ~{{ event.end_time }} (CET)</li>
-    <li>Location: <a href="{{ event.location.url }}" target="_blank">{{ event.location.text}}</a></li>
-
-    <li>Please RSVP on <a href="{{ event.meetup_url }}" target="_blank">Meetup</a>{% if event.linkedin_url %} or on <a href="{{ event.linkedin_url }}" target="_blank">LinkedIn</a>{% endif %}.</li>
-  </ul>
-  </div>
-
-{% if "discord" in event.location.text.lower() %}
-<p class="small">
-  If you join us on Discord, you need
-  to <a href="/discord-settings">configure your voice settings</a> if
-  you'd like to ask questions during the meetup.
-</p>
-{% endif %}
-
-<p class="small">Please let us know if we can do anything to make the event
-  (more) accessible to you. We will try our best to accommodate any needs you may
-  have. You can reach us through <a href="mailto:organisation@onehot.nl">
-    organisation@onehot.nl</a>.
-</p>
-{% endblock %}
-
-
 {% block main %}
-{% for talk in event.talks %}
-<div class="talk">
-  <h3 class="title">{{ talk.title }}</h3>
-  <h4 class="subtitle">{{ talk.subtitle }}</h4>
+<div class="container">
+  <h3 class="date">{{event.date}}</h3>
+  <h1>{{ event.title }}</h1>
+  {{ event.description_rendered }}
 
-  {{ talk.abstract_rendered }}
-  {% if talk.keywords %}<p class="keywords small">Keywords: {{ talk.keywords }}</p>{% endif %}
+  <div class="details">
+    <h4>Details:</h4>
+    <ul>
+      <li>{{ event.date }}</li>
+      <li>From {{ event.start_time}}  until ~{{ event.end_time }} (CET)</li>
+      <li>Location: <a href="{{ event.location.url }}" target="_blank">{{ event.location.text}}</a></li>
 
-  <div class="biography">
-    <h4 class="name">About {{ talk.speaker.name }}</h4>
-    <div class="photo">
-      <img src="{{ talk.speaker.photo_url }}" alt="Photograph of {{ talk.speaker.name }}">
+      <li>Please RSVP on <a href="{{ event.meetup_url }}" target="_blank">Meetup</a>{% if event.linkedin_url %} or on <a href="{{ event.linkedin_url }}" target="_blank">LinkedIn</a>{% endif %}.</li>
+    </ul>
     </div>
-    <div class="small">{{ talk.speaker.bio }}</div>
-    <p class="externals small">
-      {% for url in talk.speaker.external_urls %}
-        <a class="url" href="{{ url.url }}" target="_blank">{{ url.text}}</a>
-      {% endfor %}
-    </p>
-  </div>
-</div>
-{% endfor %}
 
+  {% if "discord" in event.location.text.lower() %}
+  <p class="small">
+    If you join us on Discord, you need
+    to <a href="/discord-settings">configure your voice settings</a> if
+    you'd like to ask questions during the meetup.
+  </p>
+  {% endif %}
+
+  <p class="small">Please let us know if we can do anything to make the event
+    (more) accessible to you. We will try our best to accommodate any needs you may
+    have. You can reach us through <a href="mailto:organisation@onehot.nl">
+      organisation@onehot.nl</a>.
+  </p>
+
+  {% for talk in event.talks %}
+  <div class="talk">
+    <h3 class="title">{{ talk.title }}</h3>
+    <h4 class="subtitle">{{ talk.subtitle }}</h4>
+
+    {{ talk.abstract_rendered }}
+    {% if talk.keywords %}<p class="keywords small">Keywords: {{ talk.keywords }}</p>{% endif %}
+
+    <div class="biography">
+      <h4 class="name">About {{ talk.speaker.name }}</h4>
+      <div class="photo">
+        <img src="{{ talk.speaker.photo_url }}" alt="Photograph of {{ talk.speaker.name }}">
+      </div>
+      <div class="small">{{ talk.speaker.bio }}</div>
+      <p class="externals small">
+        {% for url in talk.speaker.external_urls %}
+          <a class="url" href="{{ url.url }}" target="_blank">{{ url.text}}</a>
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
