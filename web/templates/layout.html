@@ -1,5 +1,5 @@
 {% macro active(page_name) -%}
-{% if active_page is defined and active_page == page_name %}class="active"{% endif %}
+{% if active_page is defined and active_page == page_name %}active{% endif %}
 {%- endmacro %}
 
 <!DOCTYPE html>
@@ -47,11 +47,9 @@
         <img class="logo" src="/logo.svg" alt="Onehot logo"/>
       </a>
       <nav>
-        <ul>
-          <li {{ active("/") }}><a href="/">events</a></li>
-          <li {{ active("/about") }}><a href="/about">about</a></li>
-          <li {{ active("/code-of-conduct") }}><a href="/code-of-conduct">code of conduct</a></li>
-        </ul>
+        <a href="/" class="{{ active('/') }}">events</a>
+        <a href="/about" class="{{ active('/about') }}">about</a>
+        <a href="/code-of-conduct" class="{{ active('/code-of-conduct') }}">code of conduct</a></li>
       </nav>
     </div>
   </header>

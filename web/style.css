@@ -183,32 +183,33 @@ header {
     margin: 3rem 0;
 }
 
-header nav {
-    margin-bottom: 3rem;
-}
-
 p {
     max-width: 60ch; /* Characters for optimal line length */
 }
 
 /* Navigation */
 
-nav ul {
-    list-style: none;
-    margin-left: 0;
+header nav {
+    margin-bottom: 3rem;
+    font-size: 1.25rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-nav ul li {
+header nav::-webkit-scrollbar {
+  display: none;
+}
+
+header nav a {
     display: inline-block;
     margin-right: 1rem;
     padding: 0 5px;
 }
 
-nav ul li.active {
+header nav a.active {
     background: var(--onehotpink);
-}
-
-nav ul li.active a {
     color: var(--offwhite);
     border: none;
 }
