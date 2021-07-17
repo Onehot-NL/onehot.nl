@@ -1,5 +1,8 @@
 {% extends "layout.html" %}
 
+{% block title %}Meetup: {{ event.title }}{% endblock %}
+{% block description %}{{ event.blurb }}{% endblock %}
+
 {% block main %}
 <div class="container">
   <h3 class="date">{{event.date}}</h3>
