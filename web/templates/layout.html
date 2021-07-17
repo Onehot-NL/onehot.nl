@@ -6,22 +6,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Onehot - data science community</title>
+  <title>{% block title %}Onehot - data science community{% endblock %}</title>
   <link rel="icon" type="image/png" href="/img/icons/favicon.png">
   <link rel="stylesheet" href="/style.css">
 
   <!-- Metadata -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="We're a community of people who enjoy working with data. We want to bring people from our field together in order to share our experiences and learn from one another.">
+  <meta name="description" content="{% block description %}We're a community of people who enjoy working with data. We want to bring people from our field together in order to share our experiences and learn from one another.{% endblock %}">
   <meta name="author" content="Onehot">
   <meta name="keywords" content="Onehot, data, science, community, meetups, conference, event, utrecht, one-hot, 1hot">
 
   <!-- Open graph meta tags -->
   <meta property="og:url" content="https://onehot.nl">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Onehot - data science community">
+  <meta property="og:title" content="{{ self.title() }}">
   <meta property="og:site_name" content="Onehot - data science community">
-  <meta property="og:description" content="We're a community of people who enjoy working with data. We want to bring people from our field together in order to share our experiences and learn from one another.">
+  <meta property="og:description" content="{{ self.description() }}">
 
   <!-- Image optimised for Linkedin -->
   <meta property="og:image" content="/img/icons/opengraph/180x110.png">
@@ -37,10 +37,8 @@
   <meta name=”twitter:image” content="img/icons/og600x300.png">
   <meta name=”twitter:image:alt” content="Logo of Onehot">
   <meta name=”twitter:card content="summar_large_image">
-  <meta name=”twitter:title content="Onehot - data science community">
-  <meta name="twitter:description" content="We're a community of people who enjoy working with data. We want to bring people from our field together in order to share our experiences and learn from one another.">
-
-
+  <meta name=”twitter:title content="{{ self.title() }}">
+  <meta name="twitter:description" content="{{ self.description() }}">
 </head>
 <body>
   <header>
