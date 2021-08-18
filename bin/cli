@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import shutil
+import subprocess
 import sys
 import traceback
 import xml.etree.ElementTree as ET
@@ -8,7 +9,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Iterator, List, NoReturn, Optional
+from typing import Any, Iterator, List, NoReturn, Optional, Sequence, TypeVar
 
 import jinja2
 import markdown
@@ -279,8 +280,83 @@ def generate_sitemap(dirs: Dirs) -> None:
 
 
 @cli.command()
-def deploy():
-    print("Deploying")
+def deploy() -> None:
+    """Build and deploy the site to GitHub pages."""
+    build()
+
+    # Check for uncommitted changes
+    if (
+        subprocess.run(["git", "diff-index", "--quiet", "HEAD"]).returncode
+        != 0
+    ):
+        print("Please commit all changes before deploying")
+        subprocess.run(["git", "update-index", "--refresh"])
+        sys.exit(1)
+
+    print("Deploying..")
+    dirs = Dirs.from_env()
+
+    current_branch = _check_proc(
+        subprocess.run(
+            ["git", "branch", "--show-current"], text=True, capture_output=True
+        )
+    ).stdout.strip()
+
+    if current_branch != "master":
+        print("Please check out `master` to deploy changes")
+        sys.exit(1)
+
+    current_commit = _check_proc(
+        subprocess.run(
+            ["git", "rev-parse", "HEAD"], text=True, capture_output=True
+        )
+    ).stdout.strip()
+    current_dir = Path(".")
+
+    _check_proc(subprocess.run(["git", "checkout", "deploy"]))
+
+    try:
+        for entry in dirs.build.iterdir():
+            if entry.is_dir():
+                shutil.copytree(entry, current_dir, dirs_exist_ok=True)
+            elif entry.is_file():
+                print(f"Copying {entry} to {current_dir / entry.name}")
+                shutil.copy(entry, current_dir / entry.name)
+
+        _check_proc(subprocess.run(["git", "add", "."]))
+        _check_proc(
+            subprocess.run(
+                [
+                    "git",
+                    "commit",
+                    "--no-verify",
+                    "-m",
+                    f"Deploy {current_commit}",
+                ]
+            )
+        )
+    finally:
+        _check_proc(subprocess.run(["git", "checkout", current_branch]))
+
+
+T = TypeVar("T")
+
+
+def _check_proc(
+    proc: subprocess.CompletedProcess[T],
+) -> subprocess.CompletedProcess[T]:
+    if proc.returncode == 0:
+        return proc
+
+    if proc.stdout:
+        print("Standard output:")
+        print(proc.stdout)
+
+    if proc.stderr:
+        print("Standard error:")
+        print(proc.stderr)
+
+    sys.exit(1)
 
 
 if __name__ == "__main__":
