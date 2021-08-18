@@ -88,6 +88,12 @@ $ direnv allow
 # Available on http://localhost:8000
 $ start
 
+# Build the website.
+$ cli build
+
+# Deploy the website to GitHub pages.
+$ cli deploy
+
 # Run pre-commit lints and checks
 $ pre-commit
 
