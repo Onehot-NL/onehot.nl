@@ -322,7 +322,7 @@ def deploy() -> None:
             print("No changes to deploy")
             sys.exit(1)
 
-        run(["git", "push", "origin", "deploy"])
+        run(["git", "push", "origin-ssh", "deploy"])
     finally:
         run(["git", "checkout", current_branch])
 
