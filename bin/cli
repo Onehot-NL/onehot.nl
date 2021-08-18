@@ -285,7 +285,10 @@ def deploy() -> None:
     build()
 
     # Check for uncommitted changes
-    if run(["git", "diff-index", "--quiet", "HEAD"]).returncode != 0:
+    if (
+        subprocess.run(["git", "diff-index", "--quiet", "HEAD"]).returncode
+        != 0
+    ):
         print("Please commit all changes before deploying")
         subprocess.run(["git", "update-index", "--refresh"])
         sys.exit(1)
@@ -307,7 +310,19 @@ def deploy() -> None:
     try:
         shutil.copytree(dirs.build, current_dir, dirs_exist_ok=True)
         run(["git", "add", "."])
-        run(["git", "commit", "--no-verify", "-m", f"Deploy {current_commit}"])
+
+        commit_cmd = [
+            "git",
+            "commit",
+            "--no-verify",
+            "-m",
+            f"Deploy {current_commit}",
+        ]
+        if subprocess.run(commit_cmd).returncode != 0:
+            print("No changes to deploy")
+            sys.exit(1)
+
+        run(["git", "push", "origin", "deploy"])
     finally:
         run(["git", "checkout", current_branch])
 
