@@ -49,7 +49,7 @@ def run_lint(command: Sequence[Union[str, pathlib.Path]]) -> None:
 
 def run_lints(mode: Mode) -> None:
     repo_root = pathlib.Path(os.environ["PROJECT_ROOT"])
-    build_script = repo_root / "bin" / "build"
+    build_script = repo_root / "bin" / "cli"
     pre_commit_script = repo_root / "bin" / "pre-commit"
     serve_script = repo_root / "bin" / "serve"
 

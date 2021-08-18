@@ -187,7 +187,7 @@ def exit_jinja_error(e: jinja2.TemplateError) -> NoReturn:
 
 
 @cli.command()
-def site() -> None:
+def build() -> None:
     """Build the site"""
     print("Building..")
 
@@ -276,6 +276,11 @@ def generate_sitemap(dirs: Dirs) -> None:
         ET.tostring(urlset_node, xml_declaration=True, encoding="utf-8")
         + b"\n"
     )
+
+
+@cli.command()
+def deploy():
+    print("Deploying")
 
 
 if __name__ == "__main__":
