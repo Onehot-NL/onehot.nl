@@ -1,0 +1,432 @@
+@font-face {
+    font-family: 'Hermeneus One';
+    src: url('/font/HermeneusOne-Regular.woff2') format('woff2'),
+        url('/font/HermeneusOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('/font/Mulish-Bold.woff2') format('woff2'),
+        url('/font/Mulish-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('/font/Mulish-BoldItalic.woff2') format('woff2'),
+        url('/font/Mulish-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('/font/Mulish-Italic.woff2') format('woff2'),
+        url('/font/Mulish-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('/font/Mulish-Regular.woff2') format('woff2'),
+        url('/font/Mulish-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* Basic normalize / reset. Let's not make this too complicated. */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography and type scale */
+
+html {
+    font-size: 100%;
+    font-family: Mulish, sans-serif;
+
+    /* Colour scheme */
+    --onehotpink: #F72585;
+    --onehotpink-0: #D90866;
+    --onehotpink-1: #F962A6;
+    --onehotpink-2: #FB89BC;
+
+    --onehotpurple: #7209B7;
+    --onehotpurple-0: #540688;
+    --onehotpurple-1: #9B15F4;
+    --onehotpurple-2: #AC3CF6;
+
+    --onehotblue: #3A0CA3;
+    --onehotblue-0: #280972;
+    --onehotblue-1: #4A10D1;
+    --onehotblue-2: #5A1BEE;
+
+    --darkgrey: #282421;
+    --darkgrey-0: #0B0A09;
+    --darkgrey-1: #433C37;
+    --darkgrey-2: #5A5049;
+
+    --lightgrey-2: #D1CCC7;
+    --lightgrey-1: #E3E0DD;
+    --offwhite: #F6F5F4;
+    --truewhite: #FFFFFF;
+
+
+    /* Functional colours and shades */
+    --lightblue: #4CC9F0;
+    --lightblue-1: #8EDEF6;
+    --lightblue-2: #C6EEFA;
+
+    --green: #20FC8F;
+    --green-1: #86FEC2;
+    --green-2: #C2FEE0;
+
+    --yellow: #FCE761;
+    --yellow-1: #FDF09B;
+    --yellow-2: #FEF6C3;
+
+    --red: #EE7A6D;
+    --red-1: #F4ACA4;
+    --red-2: #F8CDC9;
+}
+
+body {
+    background: var(--offwhite);
+    color: var(--darkgrey);
+    font-weight: 400;
+    line-height: 1.75;
+    padding: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Hermeneus One", serif;
+    margin: 0 0 1.38rem;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 3.052rem;
+}
+
+h2 {
+    font-size: 2.441rem;
+    margin-top: 3rem;
+}
+
+h3 {
+    font-size: 1.953rem;
+    margin-top: 3rem;
+}
+
+h4 {
+    font-size: 1.563rem;
+}
+
+h5, p , span{
+    font-size: 1.25rem;
+}
+
+small, p.small, .small span {
+    font-size: 1rem;
+}
+
+ol, ul {
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    font-size: 1.25rem;
+}
+
+li {
+    max-width: 55ch;
+}
+
+/* Links */
+
+a {
+    padding: 0;
+    color: var(--onehotblue);
+    text-decoration: none;
+    border-bottom: 2px dotted;
+}
+
+a:visited {
+    color: var(--onehotblue);
+}
+
+/* Sizing & layout */
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    margin: 3rem 0;
+}
+
+p {
+    max-width: 60ch; /* Characters for optimal line length */
+}
+
+/* Navigation */
+
+header nav {
+    margin-bottom: 3rem;
+    font-size: 1.25rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+header nav::-webkit-scrollbar {
+  display: none;
+}
+
+header nav a {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0 5px;
+}
+
+header nav a.active {
+    background: var(--onehotpink);
+    color: var(--offwhite);
+    border: none;
+}
+
+/* Events list */
+
+.event-list .event {
+    display: grid;
+    grid-template-areas:
+        "title date"
+        "description details";
+    column-gap: 1rem;
+    margin-bottom: 2rem;
+    grid-template-columns: 70% 25%;
+}
+
+@media only screen and (max-width: 750px) {
+    .event-list .event {
+        display: block;
+    }
+
+    .event-list .details {
+      background-color: var(--lightgrey-1);
+      padding: 1rem;
+    }
+}
+
+.event-list .event .title {
+    grid-area: title;
+    display: inline;
+}
+
+.event-list .event .status {
+    width: 50%;
+    height: 1.8rem;
+    margin: 1rem 0 1rem 0;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    text-align: center;
+    font-size: 80%;
+}
+
+.event-list .event .status.upcoming {
+  background-color: var(--green-1);
+}
+
+.event-list .event .status.past {
+  background-color: var(--yellow-1);
+}
+
+
+.event-list .event .description {
+    grid-area: description;
+}
+
+.event-list .event .details {
+    grid-area: details;
+    margin: 0;
+    /* font-style: italic; */
+}
+
+.event-list .event .details span {
+  display: block;
+}
+
+/* Event details page */
+
+.details {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.talk {
+  margin-top: 5rem;
+}
+
+.talk .title {
+    margin-bottom: 0.5rem;
+}
+
+.talk .subtitle {
+    margin-top: 0;
+    font-style: italic;
+}
+
+.talk .keywords {
+  font-style: italic;
+}
+
+.talk .biography {
+  background-color: var(--lightgrey-1);
+  padding: 1rem;
+}
+
+.biography .photo {
+    width: 100%;
+}
+
+.biography .photo img {
+    width: inherit;
+}
+
+@media only screen and (min-width: 750px) {
+  .biography {
+      display: grid;
+      grid-template-areas:
+          "photo name"
+          "photo bio"
+          "photo external_urls";
+  }
+
+  .biography .name {
+      grid-area: name;
+  }
+
+  .biography .photo {
+      grid-area: photo;
+      max-width: 250px;
+      margin-right: 2rem;
+  }
+
+  .biography .bio {
+      grid-area: bio;
+  }
+}
+
+.biography .externals .url {
+  margin-right: 1rem;
+}
+
+/* Logo */
+
+a.logo {
+    border: none;
+    display: block;
+    margin-bottom: 4rem;
+}
+
+img.logo {
+    max-width: 450px;
+}
+
+/* Organizers */
+
+.organizers {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: none;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin-top: 3rem;
+}
+
+.organizer img {
+    max-width: 100%;
+}
+
+@media only screen and (min-width: 500px) {
+    .organizers {
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .organizers {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .organizers {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.organizer span.rob-color {
+    background: var(--onehotpink);
+    color: var(--offwhite);
+    padding: 2px;
+}
+
+.icon-link {
+    border: none;
+}
+
+.icon-link .text {
+    border-bottom: 2px dotted;
+}
+
+.icon-link #meetup {
+    max-height: 32px;
+    margin-bottom: -10px;
+}
+
+.icon-link #linkedin {
+    max-height: 22px;
+    margin-bottom: -4px;
+}
+
+.icon-link #youtube {
+    max-height: 25px;
+    margin-bottom: -6px;
+}
+
+img.full-width {
+    max-width: 100%;
+}
+
+@media only screen and (min-width: 1325px) {
+    img.full-width {
+        max-width: 130%;
+        position: relative;
+        left: -20%;
+    }
+}
