@@ -124,3 +124,11 @@ This is what's in the repo:
 
 [jinja2]:https://jinja.palletsprojects.com/en/2.11.x/
 [overmind]:https://github.com/DarthSim/overmind
+
+## License
+
+The code in this repository is licensed under version 2.0 of the the Mozilla
+Public License. The textual and image content in this repository is copyright
+the original authors and is **not** available under this license.
+
+Please see the `LICENSE` file for details.
