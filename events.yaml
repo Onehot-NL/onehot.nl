@@ -2,31 +2,30 @@ events:
 - title: Data Vizards
   type: meetup
   description: |
-    TODO
+    
   talks:
-    - title: TODO
-      subtitle: ""
+    - title: The collateral beauty of being a data analyst
+      subtitle: "Generating abstract visuals using machine learning"
       speaker:
         name: Erik van Driessen
-        affiliation: TODO
+        affiliation: Digital Creative, Belastingdienst
         bio: |
-          TODO
-        photo_url: "/img/speakers/todo.jpg"
+          I have a background in computer science and have been working in data analysis since 2013. Most of my experience is in digital analytics and business analytics. I consider myself an exploratory programmer that likes to work on projects that force me to use new technologies.
+        photo_url: "/img/speakers/edriessen.jpg"
         external_urls:
-          - text: TODO
-            url: http;//todo.example/
+          - text: LinkedIn
+            url: https://www.linkedin.com/in/ecdriessen/
       abstract: |
-        TODO
-        Asdfasdf
-      keywords: "TODO"
+        Personal projects are a great (and fun!) way to learn. They force you to apply your skills to a new context. For example: what happens when you try to blend a job as data analyst with a personal passion for music? In my talk, I’ll answer that question by taking you through the ongoing development of a personal project. A project that started with a data analysis question and generated some unintended, but beautiful, side-effects.
+      keywords: "natural language processing, sentiment analysis, data art"
   date: 2021-09-28
   start_time: 19:30
   end_time: 21:30
   location:
-    text: Online (Google Meet)
-    url: TODO
-  meetup_url: TODO
-  linkedin_url: TODO
+    text: T.B.A.
+    url: ""
+  meetup_url: ""
+  linkedin_url: ""
   published: true
 - title: The workflow show
   type: meetup
