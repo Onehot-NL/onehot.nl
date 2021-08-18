@@ -313,11 +313,17 @@ def deploy() -> None:
     ).stdout.strip()
     current_dir = Path(".")
 
-    _check_proc(subprocess.run(["git", "checkout", "deploy"]))
+    _check_proc(
+        subprocess.run(
+            ["git", "checkout", "deploy"], capture_output=True, text=True
+        )
+    )
 
     try:
         shutil.copytree(dirs.build, current_dir, dirs_exist_ok=True)
-        _check_proc(subprocess.run(["git", "add", "."]))
+        _check_proc(
+            subprocess.run(["git", "add", "."], capture_output=True, text=True)
+        )
         _check_proc(
             subprocess.run(
                 [
@@ -326,11 +332,19 @@ def deploy() -> None:
                     "--no-verify",
                     "-m",
                     f"Deploy {current_commit}",
-                ]
+                ],
+                capture_output=True,
+                text=True,
             )
         )
     finally:
-        _check_proc(subprocess.run(["git", "checkout", current_branch]))
+        _check_proc(
+            subprocess.run(
+                ["git", "checkout", current_branch],
+                capture_output=True,
+                text=True,
+            )
+        )
 
 
 T = TypeVar("T")
@@ -342,6 +356,8 @@ def _check_proc(
     if proc.returncode == 0:
         return proc
 
+    print(f"Command {' '.join(proc.args)} failed.")
+
     if proc.stdout:
         print("Standard output:")
         print(proc.stdout)
@@ -349,6 +365,8 @@ def _check_proc(
     if proc.stderr:
         print("Standard error:")
         print(proc.stderr)
+
+    print("Exiting...")
 
     sys.exit(1)
 
