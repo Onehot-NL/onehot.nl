@@ -131,6 +131,17 @@ This is what's in the repo:
 [jinja2]:https://jinja.palletsprojects.com/en/2.11.x/
 [overmind]:https://github.com/DarthSim/overmind
 
+## How to contribute
+
+There is this basic loop:
+
+ - Make changes you want.
+ - Build the website. (`cli build`)
+ - Deploy the changes. (`cli deploy`)
+
+You can use the `start` command to preview the changes locally before deploying
+them.
+
 ## License
 
 The code in this repository is licensed under version 2.0 of the the Mozilla
