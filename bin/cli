@@ -285,10 +285,7 @@ def deploy() -> None:
     build()
 
     # Check for uncommitted changes
-    if (
-        subprocess.run(["git", "diff-index", "--quiet", "HEAD"]).returncode
-        != 0
-    ):
+    if run(["git", "diff-index", "--quiet", "HEAD"]).returncode != 0:
         print("Please commit all changes before deploying")
         subprocess.run(["git", "update-index", "--refresh"])
         sys.exit(1)
@@ -296,58 +293,30 @@ def deploy() -> None:
     print("Deploying..")
     dirs = Dirs.from_env()
 
-    current_branch = _check_proc(
-        subprocess.run(
-            ["git", "branch", "--show-current"], text=True, capture_output=True
-        )
-    ).stdout.strip()
+    current_branch = run(["git", "branch", "--show-current"]).stdout.strip()
 
     if current_branch != "master":
         print("Please check out `master` to deploy changes")
         sys.exit(1)
 
-    current_commit = _check_proc(
-        subprocess.run(
-            ["git", "rev-parse", "HEAD"], text=True, capture_output=True
-        )
-    ).stdout.strip()
+    current_commit = run(["git", "rev-parse", "HEAD"]).stdout.strip()
     current_dir = Path(".")
 
-    _check_proc(
-        subprocess.run(
-            ["git", "checkout", "deploy"], capture_output=True, text=True
-        )
-    )
+    run(["git", "checkout", "deploy"])
 
     try:
         shutil.copytree(dirs.build, current_dir, dirs_exist_ok=True)
-        _check_proc(
-            subprocess.run(["git", "add", "."], capture_output=True, text=True)
-        )
-        _check_proc(
-            subprocess.run(
-                [
-                    "git",
-                    "commit",
-                    "--no-verify",
-                    "-m",
-                    f"Deploy {current_commit}",
-                ],
-                capture_output=True,
-                text=True,
-            )
-        )
+        run(["git", "add", "."])
+        run(["git", "commit", "--no-verify", "-m", f"Deploy {current_commit}"])
     finally:
-        _check_proc(
-            subprocess.run(
-                ["git", "checkout", current_branch],
-                capture_output=True,
-                text=True,
-            )
-        )
+        run(["git", "checkout", current_branch])
 
 
 T = TypeVar("T")
+
+
+def run(args: List[str]) -> subprocess.CompletedProcess[str]:
+    return _check_proc(subprocess.run(args, text=True, capture_output=True))
 
 
 def _check_proc(
