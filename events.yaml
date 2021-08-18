@@ -1,4 +1,33 @@
 events:
+- title: Data Vizards
+  type: meetup
+  description: |
+    TODO
+  talks:
+    - title: TODO
+      subtitle: ""
+      speaker:
+        name: TODO
+        affiliation: TODO
+        bio: |
+          TODO
+        photo_url: "/img/speakers/todo.jpg"
+        external_urls:
+          - text: TODO
+            url: http;//todo.example/
+      abstract: |
+        TODO
+        Asdfasdf
+      keywords: "TODO"
+  date: 2021-09-28
+  start_time: 19:30
+  end_time: 21:30
+  location:
+    text: Online (Google Meet)
+    url: TODO
+  meetup_url: TODO
+  linkedin_url: TODO
+  published: true
 - title: The workflow show
   type: meetup
   description: |
