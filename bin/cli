@@ -316,13 +316,7 @@ def deploy() -> None:
     _check_proc(subprocess.run(["git", "checkout", "deploy"]))
 
     try:
-        for entry in dirs.build.iterdir():
-            if entry.is_dir():
-                shutil.copytree(entry, current_dir, dirs_exist_ok=True)
-            elif entry.is_file():
-                print(f"Copying {entry} to {current_dir / entry.name}")
-                shutil.copy(entry, current_dir / entry.name)
-
+        shutil.copytree(dirs.build, current_dir, dirs_exist_ok=True)
         _check_proc(subprocess.run(["git", "add", "."]))
         _check_proc(
             subprocess.run(
