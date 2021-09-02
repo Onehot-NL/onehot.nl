@@ -1,0 +1,8 @@
+cd Documents/onehot
+start
+
+# Open http://localhost:8000
+
+# Doe aanpassingen in events.yaml
+
+# Sla op en kijk

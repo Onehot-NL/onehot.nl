@@ -1,8 +1,22 @@
 events:
-- title: Data Vizards
+- title: Data Wizards
   type: meetup
   description: |
-    
+    "It's magic!" Or so they say. Creating beautiful and enchanting visualizations out of nowhere.
+    The art of data visualization brings us the possibility of identifying patterns, understanding
+    the story and grasping the latest trends. And that's not all!
+
+    During this meetup we will host two practitioners active in this domain. Both speakers will give
+    a 30 minute presentation, with some time for questions afterwards. Between the talks there will
+    be a brief break, and afterwards we will have room for further discussion and socializing.
+
+    And there is more! This time we will actually have a hybrid meetup! This one night, Viqtor Davis
+    (data company in Utrecht) will be welcoming us in their office located in Utrecht (close to
+    Leidsche Rijn train station). We will arrange some diner beforehand and then we'll get started
+    with the first talk at 19:00! Doors are open 18:30.
+
+    Since we will only have limited space at the location, sign up quickly (using the Meetup link 
+    provided below). Want to enjoy the talks from home? We will also stream the talks.
   talks:
     - title: The collateral beauty of being a data analyst
       subtitle: "Generating abstract visuals using machine learning"
@@ -19,12 +33,12 @@ events:
         Personal projects are a great (and fun!) way to learn. They force you to apply your skills to a new context. For example: what happens when you try to blend a job as data analyst with a personal passion for music? In my talk, I’ll answer that question by taking you through the ongoing development of a personal project. A project that started with a data analysis question and generated some unintended, but beautiful, side-effects.
       keywords: "natural language processing, sentiment analysis, data art"
   date: 2021-09-28
-  start_time: 19:30
-  end_time: 21:30
+  start_time: 19:00
+  end_time: 21:00
   location:
-    text: T.B.A.
-    url: ""
-  meetup_url: ""
+    text: Viqtor Davis
+    url: https://www.viqtordavis.com/nl-nl/
+  meetup_url: https://www.meetup.com/onehot/events/280416644
   linkedin_url: ""
   published: true
 - title: The workflow show
