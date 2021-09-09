@@ -15,18 +15,20 @@ events:
     Leidsche Rijn train station). We will arrange some diner beforehand and then we'll get started
     with the first talk at 19:00! Doors are open 18:30.
 
-    Since we will only have limited space at the location, sign up quickly (using the Meetup link 
+    Since we will only have limited space at the location, sign up quickly (using the Meetup link
     provided below). Want to enjoy the talks from home? We will also stream the talks.
   talks:
     - title: The collateral beauty of being a data analyst
       subtitle: "Generating abstract visuals using machine learning"
       speaker:
-        name: Erik van Driessen
-        affiliation: Digital Creative, Belastingdienst
+        name: Erik Driessen
+        affiliation: Independent Digital Creative
         bio: |
           I have a background in computer science and have been working in data analysis since 2013. Most of my experience is in digital analytics and business analytics. I consider myself an exploratory programmer that likes to work on projects that force me to use new technologies.
         photo_url: "/img/speakers/edriessen.jpg"
         external_urls:
+          - text: Website
+            url: http://edriessen.com/
           - text: LinkedIn
             url: https://www.linkedin.com/in/ecdriessen/
       abstract: |
@@ -36,8 +38,8 @@ events:
   start_time: 19:00
   end_time: 21:00
   location:
-    text: Viqtor Davis
-    url: https://www.viqtordavis.com/nl-nl/
+    text: Viqtor Davis, Parijsboulevard 143a, 3541CS Utrecht
+    url: https://goo.gl/maps/FL1NJw2jKXSXXe6B7
   meetup_url: https://www.meetup.com/onehot/events/280416644
   linkedin_url: ""
   published: true
