@@ -306,6 +306,7 @@ def deploy() -> None:
     current_dir = Path(".")
 
     run(["git", "checkout", "deploy"])
+    run(["git", "pull"])
 
     try:
         shutil.copytree(dirs.build, current_dir, dirs_exist_ok=True)
