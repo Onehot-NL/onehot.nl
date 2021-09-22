@@ -322,6 +322,18 @@ def deploy() -> None:
             print("No changes to deploy")
             sys.exit(1)
 
+        # Ensure we push over SSH instead of HTTP. Add a special remote for
+        # this to make sure.
+        if "origin-ssh" not in run(["git", "remote"]).stdout.strip():
+            add_remote_cmd = [
+                "git",
+                "remote",
+                "add",
+                "origin-ssh",
+                "git@github.com:duijf/onehot.git",
+            ]
+            run(add_remote_cmd)
+
         run(["git", "push", "origin-ssh", "deploy"])
     finally:
         run(["git", "checkout", current_branch])
