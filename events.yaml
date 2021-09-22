@@ -24,7 +24,10 @@ events:
         name: Erik Driessen
         affiliation: Independent Digital Creative
         bio: |
-          I have a background in computer science and have been working in data analysis since 2013. Most of my experience is in digital analytics and business analytics. I consider myself an exploratory programmer that likes to work on projects that force me to use new technologies.
+          I have a background in computer science and have been working in data
+          analysis since 2013. Most of my experience is in digital analytics
+          and business analytics. I consider myself an exploratory programmer
+          that likes to work on projects that force me to use new technologies.
         photo_url: "/img/speakers/edriessen.jpg"
         external_urls:
           - text: Website
@@ -32,8 +35,51 @@ events:
           - text: LinkedIn
             url: https://www.linkedin.com/in/ecdriessen/
       abstract: |
-        Personal projects are a great (and fun!) way to learn. They force you to apply your skills to a new context. For example: what happens when you try to blend a job as data analyst with a personal passion for music? In my talk, I’ll answer that question by taking you through the ongoing development of a personal project. A project that started with a data analysis question and generated some unintended, but beautiful, side-effects.
+        Personal projects are a great (and fun!) way to learn. They force you
+        to apply your skills to a new context. For example: what happens when you
+        try to blend a job as data analyst with a personal passion for music?
+        In my talk, I’ll answer that question by taking you through the ongoing
+        development of a personal project. A project that started with a data
+        analysis question and generated some unintended, but beautiful,
+        side-effects.
       keywords: "natural language processing, sentiment analysis, data art"
+    - title: A business view on data
+      subtitle: "Using data visualization in business environments"
+      speaker:
+        name: Daniel Bontje
+        affiliation: VIQTOR DAVIS
+        bio: |
+          I am a data scientist who thinks data quality & understanding the
+          business is more important than data quantity & applying big
+          black-box models. In recent years, my focus is on classification
+          models and extracting information with NLP from unstructured data
+          like text. In order to obtain the data I need, I branched out into
+          data engienering. I started my career as a mathematical biologist and
+          have built epidemiological models to quantify the effects of control
+          measures on disease outbreaks.
+        photo_url: "/img/speakers/danielbontje.jpg"
+        external_urls:
+          - text: LinkedIn
+            url: https://linkedin.com/in/danielbontje
+      abstract: |
+        Data scientists dive deep into the data to gain understanding of the
+        business, to develop features and optimize predictive models. However,
+        in the end, managers/product owners are the ones who make decisions. To
+        facilitate hte decision making, the insights created by the data
+        scientist must be captured into interpretable tables, graphs, and
+        figures. Therefore, visualizations are a key means to provide them with
+        insights to understand the use case at hand.
+
+        In this presentation I will show a selection of graphs/visualizations
+        from different projects which:
+
+        - gave a better grasp on the information hidden in the data during the
+          exploratory data analysis phase,
+        - assisted in developing features for feature engineering and feature
+          selection,
+        - helped communicate a message to the product owner or,
+        - assisted management to make informed decisions.
+      keywords: "data visualization"
   date: 2021-09-28
   start_time: 19:00
   end_time: 21:00
